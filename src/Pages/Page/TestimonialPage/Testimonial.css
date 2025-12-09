@@ -1,0 +1,35 @@
+.testimonial {
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.testimonial-container {
+  text-align: center;
+  max-width: 800px;
+}
+
+.testimonial h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.testimonial p {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .testimonial h1 {
+    font-size: 36px;
+  }
+  
+  .testimonial p {
+    font-size: 16px;
+  }
+}

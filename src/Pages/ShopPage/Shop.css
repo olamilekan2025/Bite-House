@@ -1,0 +1,35 @@
+.shop {
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.shop-container {
+  text-align: center;
+  max-width: 800px;
+}
+
+.shop h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.shop p {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .shop h1 {
+    font-size: 36px;
+  }
+  
+  .shop p {
+    font-size: 16px;
+  }
+}
