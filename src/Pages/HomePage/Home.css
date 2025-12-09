@@ -1,35 +1,254 @@
+
+
+
+
+
 .home {
   width: 100%;
-  min-height: calc(100vh - 64px);
+  min-height: 100vh;
+  background-color: rgb(0,0,0,0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  position: relative;
 }
 
-.home-container {
-  text-align: center;
-  max-width: 800px;
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
 }
 
-.home h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  color: #333;
+
+.hero-area {
+  width: 90%;
+  max-width: 1300px;
+  z-index: 5;
 }
 
-.home p {
-  font-size: 18px;
-  color: #666;
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .home h1 {
-    font-size: 36px;
-  }
+.hero-wrapper {
+  display: flex;
   
-  .home p {
-    font-size: 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-direction: row;
+
+}
+
+
+.hero-left {
+  color: #fff;
+  max-width: 50%;
+  height:500px;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+align-items: flex-start;
+  margin-top: 90PX;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+ 
+}
+
+.tagline {
+  font-size: 2rem;
+  width: 60%;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.hero-title {
+  font-size: 4.7rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 20px 0;
+  text-transform: uppercase;
+  color: #29BA2B;
+}
+
+.hero-title > a {
+    color: #088135;
+}
+
+.hero-text {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.hero-review {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: gold;
+}
+
+.hero-review span {
+  font-size: 1rem;
+  color: #fff;
+}
+
+
+.btn-order {
+  background: #29BA2B;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  border: none;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  color: #fff;
+}
+
+.btn-order:hover {
+  background: #1b7f1d;
+  transform: translateY(-2px);
+}
+.hero-right {
+    width: 55%;
+ 
+    height: 100%;
+    margin-top: 90px;
+   
+}
+
+.hero-right img {
+ 
+    object-fit: contain;
+
+    width: clamp(300px, 85vw, 540px);
+  border-radius: 20px;
+  animation: float 4s ease-in-out infinite;
+}
+
+
+@keyframes fadeUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeRight {
+  from { transform: translateX(60px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+
+/* ================================
+   📱 Mobile Responsive Styling
+=================================*/
+@media (max-width: 768px) {
+
+  .hero-area {
+    width: 92%;
+  }
+
+  .hero-wrapper {
+    flex-direction: column;
+    gap: 35px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-left {
+    max-width: 100%;
+    width: 100%;
+    align-items: center;
+    margin-top: 40px;
+    height: auto;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    width: auto;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+    margin: 12px 0;
+    line-height: 1.15;
+  }
+
+  .hero-title a {
+    font-size: inherit;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+    width: 90%;
+    max-width: 380px;
+    margin-bottom: 18px;
+    line-height: 1.55;
+  }
+
+  .hero-review {
+    font-size: .9rem;
+    margin-bottom: 25px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .hero-review span {
+    font-size: .9rem;
+  }
+
+  .btn-order {
+    padding: 14px 34px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+
+  .hero-right {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-right img {
+    width: 70%;
+    min-width: 260px;
+    max-width: 350px;
+    border-radius: 18px;
+  }
+}
+
+
+/* ================================
+   📱 Small Phones (iPhone SE etc)
+=================================*/
+@media (max-width: 480px) {
+
+  .tagline {
+    font-size: .85rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-text {
+    font-size: .9rem;
+    max-width: 320px;
+  }
+
+  .btn-order {
+    padding: 12px 28px;
+    font-size: .9rem;
+  }
+
+  .hero-right img {
+    width: 80%;
+    max-width: 300px;
   }
 }

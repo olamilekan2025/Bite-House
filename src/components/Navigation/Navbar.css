@@ -14,7 +14,6 @@
   align-items: flex-end;
 background-color: #101828;
   padding: 0px 40px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
   backdrop-filter: blur(6px);
 
 }
