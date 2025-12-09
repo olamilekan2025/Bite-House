@@ -1,11 +1,23 @@
 import "./About.css"
+import { useEffect } from "react";
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 function About() {
+      useEffect(() => {
+            Aos.init({
+                offset: 120,
+                duration: 700,
+                easing: 'ease-in-out',
+                delay: 100,
+                once: true,
+            });
+        }, []);
     return (
         <main className="about">
             <div className="about-overlay">
                 <div className="about-content">
-                    <div className="text-block">
+                    <div className="text-block"data-aos="fade-right">
                         <div>
                             <span>About Bite House</span>
                             <p>
@@ -21,7 +33,7 @@ function About() {
                             <button className="read-btn">Learn More</button>
                         </div>
                     </div>
-                    <div className="image-block">
+                    <div className="image-block"data-aos="fade-left">
                         <img 
                             src="https://res.cloudinary.com/divio4grm/image/upload/v1765255922/ctaThumb1_1_xmgjp1.png" 
                             alt="About Bite House" 

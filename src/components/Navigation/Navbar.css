@@ -162,6 +162,8 @@ display: flex;
 @media (max-width:896px) {
   .navbar-container {
     padding: 10px;
+    /* gap: 13rem; */
+    justify-content: space-between;
   }
   .menu-toggle { display: block; }
   .nav-menu {
