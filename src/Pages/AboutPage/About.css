@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 64px;
+  overflow: hidden;
 }
 
 .about-overlay {

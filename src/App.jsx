@@ -26,6 +26,7 @@ import NotFound from "./Pages/Page/404Page/404";
 
 // Splash Screen
 import SplashScreen from "./Utils/SplashScreen";
+import Info from "../src/Utils/InfoPage/infor"
 
 function AppWrapper() {
   const location = useLocation();
@@ -63,6 +64,7 @@ function AppWrapper() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/not-found" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/info" element={<Info />} />
       </Routes>
       <Footer />
     </>

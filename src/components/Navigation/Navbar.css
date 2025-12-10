@@ -161,9 +161,11 @@ display: flex;
 
 @media (max-width:896px) {
   .navbar-container {
-    padding: 10px;
+    /* padding: 10px; */
     /* gap: 13rem; */
-    justify-content: space-between;
+    gap: 12rem;
+    /* justify-content: space-between; */
+    background-color: red;
   }
   .menu-toggle { display: block; }
   .nav-menu {

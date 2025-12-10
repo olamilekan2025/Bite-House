@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Info from "../../Utils/InfoPage/infor";
 import Aos from "aos";
 import 'aos/dist/aos.css';
 import "./Contact.css"
+
 
 function Contact() {
      useEffect(() => {
@@ -58,17 +60,18 @@ function Contact() {
         rows="6"
       ></textarea>
 
-      <button type="submit">Send Message</button>
+      <button className="contact-button" type="submit">Send Message</button>
     </form>
   </div>
 
-  <div className="contact-image">
+  <div className="contact-image"data-aos="zoom-in">
     <img
       src="https://res.cloudinary.com/divio4grm/image/upload/v1765311144/contact-1_gpbmwp.png"
       alt="Contact"
     />
   </div>
 </div>
+<Info/>
 
     </>
   );

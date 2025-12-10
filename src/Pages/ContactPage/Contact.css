@@ -6,6 +6,7 @@
   padding: 80px 3% 80px 4%;
   font-family: Arial, sans-serif;
   background-color: rgba(0,0,0,0.9);
+  overflow: hidden;
 }
 
 
@@ -184,7 +185,7 @@ textarea:focus {
 }
 
 
-button {
+.contact-button {
   width: 100%;
   padding: 14px;
   font-size: 16px;
@@ -198,7 +199,7 @@ button {
   transition: all 0.3s ease;
 }
 
-button:hover {
+.contact-button:hover {
   background: #23B12C;
 
 }
