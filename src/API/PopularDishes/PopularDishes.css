@@ -1,0 +1,270 @@
+/* .popular-container {
+  padding: 70px 8%;
+  background: #fafafa;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: #222;
+}
+
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 25px;
+}
+
+.dish-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: .3s;
+  text-align: center;
+}
+
+.dish-card:hover {
+  transform: translateY(-5px);
+}
+
+.dish-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border-radius: 50%;
+}
+
+.dish-name {
+  margin: 15px 0 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dish-category {
+  color: #888;
+  font-size: 14px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 25px;
+} */
+
+
+
+
+.popular-container {
+  padding: 70px 8%;
+  background: #fafafa;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* GRID */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.dish-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.dish-card:hover {
+  transform: translateY(-5px);
+  background-color: #101828;
+}
+
+/* DISH IMAGE */
+.dish-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: auto;
+  display: block;
+}
+
+/* FIXED ICONS */
+.icon-wrapper {
+position: absolute;
+  top: 15px;
+  right: 15px;                 /* CHANGED: Always visible, no hide/show */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10;
+  opacity: 0;                  /* Start hidden */
+  transition: opacity 0.3s ease;
+}
+
+.dish-card:hover .icon-wrapper {
+ opacity: 1;
+}
+
+.icon {
+background: #fff;
+  backdrop-filter: blur(4px);
+  padding: 12px;
+  border-radius: 50%;
+  color: #000;
+  font-size: 18px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+
+
+.icon:hover {
+ background: #23B12C;
+  transform: scale(1.1);
+}
+
+/* TEXT */
+.dish-name {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.dish-card:hover > .dish-name  {
+    color: #fff;
+}
+.dish-card:hover > .dish-category  {
+    color: #fff;
+}
+.dish-category {
+  text-align: center;
+  color: #888;
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: white;
+  padding: 30px;
+  width: 420px;
+  border-radius: 15px;
+  text-align: center;
+  animation: fadeIn .3s;
+}
+
+.modal-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.qty-box {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.qty-btn {
+ width: 20px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+
+}
+
+.qty-num {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.total-price {
+  margin: 10px 0;
+  font-size: 24px;
+  color: #23B12C;
+  font-weight: bold;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 12px;
+  background: #23B12C;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.close-btn {
+  margin-top: 15px;
+  background: #101828;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {transform: scale(0.8); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+
+
+
+.view-more-btn {
+  margin: 40px auto 0;
+  display: block;
+  padding: 12px 30px;
+  background: #101828;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.view-more-btn:hover {
+  background: #222;
+}

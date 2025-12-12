@@ -1,0 +1,53 @@
+.not-found {
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+background-color: rgb(0,0,0,0.9);
+  flex-direction: column;
+  gap: 20px;
+}
+
+.not-found-container {
+  text-align: center;
+  max-width: 600px;
+
+}
+.not-found-container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+
+.not-found p {
+  font-size: 20px;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.not-found  > .back-button {
+  width: 20%;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: #23B12C;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .not-found h1 {
+    font-size: 48px;
+  }
+  
+  .not-found p {
+    font-size: 15px;
+  }
+  .not-found  > .back-button {
+    width: 100%;
+  }
+}

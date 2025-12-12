@@ -161,11 +161,10 @@ display: flex;
 
 @media (max-width:896px) {
   .navbar-container {
-    /* padding: 10px; */
-    /* gap: 13rem; */
-    gap: 12rem;
-    /* justify-content: space-between; */
-    background-color: red;
+
+    gap: 14rem;
+  
+
   }
   .menu-toggle { display: block; }
   .nav-menu {
@@ -195,6 +194,9 @@ display: flex;
        transition: transform 0.3s ease-out;
    
   }
+  .nav-link.active {
+    border: none;
+  }
 
   .nav-link { padding: 14px 20px; }
   .dropdown-menu { position: static; box-shadow: none; border: none; background: transparent; padding: 0; max-height: 220;}
@@ -208,9 +210,9 @@ display: flex;
 
 
 @media (max-width: 896px) {
-  .logo { width: 50%; height: 100%;}
+  .logo { width: 100px; height: 100%; }
   .logo > img {
-    width: 100%;
+    width: 70px;
     object-fit: contain;
     height: 100%;
    
@@ -218,4 +220,202 @@ display: flex;
   .nav-link { font-size: 17px; }
   .dropdown-item { font-size: 17px; }
 }
+
+
+
+
+
+.user-section {
+  position: relative;
+  display: inline-block;
+}
+
+.initials-circle {
+  width: 45px;
+  height: 45px;
+  background:  #23B12C;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.initials-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 10px  #23B12C;
+}
+
+/* DROPDOWN MENU */
+.user-dropdown-menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: white;
+  min-width: 200px;
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  overflow: hidden;
+  z-index: 1000;
+  animation: dropdownFade 0.3s ease;
+}
+
+.user-info {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8f9fa;
+}
+
+.user-info .icon {
+  font-size: 28px;
+  color: #23B12C;
+}
+
+.user-name {
+  font-weight: 600;
+
+  color: #101828;
+  margin: 0;
+}
+
+.user-email {
+  font-size: 13px;
+  color: #7f8c8d;
+  margin: 4px 0 0;
+}
+
+.user-dropdown-menu hr {
+  margin: 8px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.details-logout-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+background-color: red;
+align-items: center;  align-items: center;
+  gap: 10px;
+  transition: background 0.3s;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+.logout-btn:hover {
+  background: #fff5f5;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+  .user-section {
+    margin-left: auto;
+  }
+  .initials-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+}
+
+
+
+
+/* Make dropdowns work on mobile */
+.pages-wrapper,
+.user-wrapper {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+}
+
+.pages-wrapper::after,
+.user-wrapper::after {
+  color: #057C37;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Show dropdown on mobile when active */
+.dropdown-menu.show,
+.user-dropdown-menu.show {
+  display: block !important;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile - make sure dropdown appears when menu is open */
+@media (max-width: 768px) {
+  .dropdown-menu,
+  .user-dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: rgba(0,0,0,0.05);
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+
+  .user-wrapper,
+  .pages-wrapper {
+    width: 100%;
+    text-align: left;
+  }
+
+  .initials-circle {
+    margin-left: auto;
+  }
+}
+
+
+
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #23B12C;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
 

@@ -1,5 +1,7 @@
 import "./Home.css";
 import { useEffect } from "react";
+import PopularFood from "../../API/PopularFood/popularFood";
+import PopularDishes from "../../API/PopularDishes/PopularDishes";
 import Aos from "aos";
 import 'aos/dist/aos.css';
 
@@ -14,6 +16,7 @@ function Home() {
             });
         }, []);
   return (
+    <>
     <main className="home">
       <div className="hero-area">
         <div className="hero-wrapper" data-aos="fade-right">
@@ -39,11 +42,14 @@ function Home() {
             <img
               src="https://res.cloudinary.com/divio4grm/image/upload/v1765277257/hero-four_img1_uxd5c4.png"
               alt="Bite House Chicken"
-            />
+              />
           </div>
         </div>
       </div>
     </main>
+    <PopularFood/>
+    <PopularDishes/>
+              </>
   );
 }
 
