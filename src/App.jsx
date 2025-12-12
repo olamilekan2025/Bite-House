@@ -12,7 +12,7 @@ import About from "./Pages/AboutPage/about";
 import Shop from "./Pages/ShopPage/shop";
 import Blog from "./Pages/BlogPage/blog";
 import Contact from "./Pages/ContactPage/contact";
-import Cart from "./Pages/Page/Cart/cart";
+import Cart from "./Pages/Page/CartPage/Cart"
 
 // Dropdown Pages
 import Chef from "./Pages/Page/ChefPage/chef";
