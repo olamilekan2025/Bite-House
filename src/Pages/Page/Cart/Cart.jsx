@@ -19,7 +19,6 @@ const Cart = () => {
       <div className="cart-container">
         <h2>Your Cart is Empty</h2>
         <p>Add some delicious food to your cart!</p>
- 
       </div>
     );
   }

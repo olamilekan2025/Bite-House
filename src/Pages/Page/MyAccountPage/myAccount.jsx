@@ -49,7 +49,7 @@ const MyAccount = () => {
     }
   };
 
-  // LOGIN
+ 
   const handleLogin = async (e) => {
     e.preventDefault();
     setErrors("");
@@ -71,7 +71,7 @@ const MyAccount = () => {
         </h1>
       </div>
 
-      {/* LOGIN FORM */}
+   
       {activeForm === "login" && (
         <form className="form-box" onSubmit={handleLogin}>
           <div className="form-header">
@@ -106,7 +106,7 @@ const MyAccount = () => {
         </form>
       )}
 
-      {/* SIGNUP FORM */}
+   
       {activeForm === "signup" && (
         <form className="form-box" onSubmit={handleSignup}>
           <div className="form-header">

@@ -12,12 +12,12 @@ export function CartProvider({ children }) {
     return saved ? JSON.parse(saved) : [];
   });
 
-  // Save cart to localStorage
+ 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // ADD TO CART
+ 
   const addToCart = (meal) => {
     if (!user) return false;
 
@@ -38,12 +38,12 @@ export function CartProvider({ children }) {
     return true;
   };
 
-  // REMOVE ITEM
+ 
   const removeFromCart = (id) => {
     setCart(cart.filter((item) => item.idMeal !== id));
   };
 
-  // UPDATE QUANTITY
+  
   const updateQuantity = (id, qty) => {
     if (qty <= 0) {
       removeFromCart(id);
@@ -56,14 +56,14 @@ export function CartProvider({ children }) {
     }
   };
 
-  // CLEAR CART
+
   const clearCart = () => setCart([]);
 
-  // TOTAL ITEMS
+ 
   const getTotalItems = () =>
     cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  // TOTAL PRICE
+
   const getTotalPrice = () =>
     cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
