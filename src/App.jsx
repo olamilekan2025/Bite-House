@@ -32,6 +32,8 @@ import ServiceHook from "./Utils/ServiceHookPage/ServiceHook";
 import PopularFood from "./API/PopularFood/popularFood";
 import PopularDishes from "./API/PopularDishes/PopularDishes";
 import Register from "./Pages/register";
+import ClientReviews from "./Utils/ClientReviewsPage/ClientReviews";
+import OurChef from "./Utils/OurChefPage/ourChef"
 
 function AppWrapper() {
   const [loading, setLoading] = useState(true);
@@ -79,6 +81,8 @@ function AppWrapper() {
         <Route path="/popularFood" element={<PopularFood />} />
         <Route path="/popularDishes" element={<PopularDishes />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/clientReviews" element={<ClientReviews />} />
+        <Route path="/ourChef" element={<OurChef />} />
 
         {/* 404 */}
         <Route path="*" element={<NotFound />} />

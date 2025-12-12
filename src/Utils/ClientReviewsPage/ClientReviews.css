@@ -1,0 +1,111 @@
+
+.review-section {
+  padding: 80px 0% 0px 1%;
+  background: #f4f6f8;
+
+}
+
+
+.review-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.review-header span {
+  font-size: 38px;
+  font-weight: 700;
+  color: #23B12C;
+}
+
+.review-header p {
+  font-size: 17px;
+  color: #000;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+
+.review-slider {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.review-slider .slick-slide {
+  padding: 0 15px; 
+}
+
+.review-slider .slick-list {
+  margin: 0 -15px;
+}
+
+
+.review-card {
+  background: #101828;
+  padding: 28px 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  height: 100%;
+}
+
+
+
+
+.review-photo {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #29ba2b;
+  margin: 0 auto 12px;
+}
+
+
+.review-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 6px;
+}
+
+
+.review-stars {
+  margin: 10px 0;
+}
+
+.star-icon {
+  color: #29ba2b;
+  font-size: 18px;
+}
+
+
+.review-message {
+  font-size: 15px;
+  color: #e4e7ec;
+  line-height: 1.7;
+  margin-top: 12px;
+  font-style: italic;
+}
+
+
+.slick-dots li button:before {
+  color: #29ba2b;
+  font-size: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #101828;
+}
+
+
+@media (max-width: 768px) {
+  .review-header h1 {
+    font-size: 30px;
+  }
+
+  .review-card {
+    padding: 22px 18px;
+  }
+}
+

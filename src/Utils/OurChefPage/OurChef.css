@@ -1,0 +1,140 @@
+.chef-section {
+  padding: 80px 3%;
+  background: #f7f7f7;
+}
+
+.chef-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.chef-header span {
+  font-size: 42px;
+  font-weight: 700;
+  color: #23B12C;
+}
+
+.chef-header p {
+  font-size: 20px;
+  color: #000;
+  margin-top: 8px;
+}
+
+
+.chef-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 10px;
+}
+
+
+.chef-card {
+  background:transparent;
+  border-radius: 20px;
+
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chef-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.13);
+}
+
+
+
+.chef-image-wrapper {
+  width: 90%;
+  height: 400px;
+  margin: 0 auto 15px;
+  overflow: hidden;
+  padding: 4px;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  transition: 0.3s ease;
+
+}
+
+.chef-card:hover .chef-image-wrapper {
+  border-color: #057C37;
+
+}
+
+@media screen and (max-width:896px) {
+    .chef-card {
+ box-shadow: 0 18px 40px rgba(0,0,0,0.13);
+    }
+    .chef-card:hover  {
+        display: none;
+    }
+    .chef-image-wrapper  {
+        background-color: transparent;
+    }
+}
+
+.chef-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Text */
+.chef-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #101828;
+  margin-top: 10px;
+}
+
+.chef-role {
+  color: #23B12C;
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+.chef-desc {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+
+
+
+
+
+.medial {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #23B12C;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px);
+  background: #14532d;
+}
+
+
+.social-icon.facebook { background: #1877F2; }
+.social-icon.whatsapp { background: #25D366; }
+.social-icon.instagram {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+}
+
