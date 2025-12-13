@@ -40,6 +40,7 @@
 .chef-card:hover {
   transform: translateY(-7px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.13);
+  background-color: #fff;
 }
 
 

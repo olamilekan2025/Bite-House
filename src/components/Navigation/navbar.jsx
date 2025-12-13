@@ -1,4 +1,5 @@
 
+
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaUser, FaSignOutAlt, FaChevronDown } from "react-icons/fa";
@@ -24,6 +25,17 @@ function Navbar() {
 
   const closeMenu = () => setIsOpen(false);
 
+  const closeDropdowns = () => {
+    setShowPages(false);
+    setShowUserDropdown(false);
+  };
+
+  const handleLogout = () => {
+    logout();
+    closeDropdowns();
+    navigate("/");
+  };
+
   const getInitials = () => {
     if (!user) return "NN";
     if (user.firstName && user.lastName) {
@@ -38,6 +50,7 @@ function Navbar() {
     return "NN";
   };
 
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handler = (e) => {
       if (pagesRef.current && !pagesRef.current.contains(e.target)) setShowPages(false);
@@ -47,15 +60,9 @@ function Navbar() {
     return () => document.removeEventListener("click", handler);
   }, []);
 
-  const handleLogout = () => {
-    logout();
-    setShowUserDropdown(false);
-    navigate("/");
-  };
-
   return (
     <header className="navbar-container">
-      <NavLink to="/" className="logo" onClick={closeMenu}>
+      <NavLink to="/" className="logo" onClick={() => { closeMenu(); closeDropdowns(); }}>
         <img src={logo} alt="BiteHouse" />
       </NavLink>
 
@@ -75,13 +82,16 @@ function Navbar() {
 
           {showPages && (
             <div className="dropdown-menu show">
-
-
-              <NavLink to="/gallery" className="dropdown-item" onClick={closeMenu}>Gallery</NavLink>
-              <NavLink to="/reservation" className="dropdown-item" onClick={closeMenu}>Reservation</NavLink>
-              <NavLink to="/services" className="dropdown-item" onClick={closeMenu}>Services</NavLink>
-              <NavLink to="/testimonial" className="dropdown-item" onClick={closeMenu}>Testimonial</NavLink>
-              <NavLink to="/faq" className="dropdown-item" onClick={closeMenu}>FAQ</NavLink>
+              {["gallery", "reservation", "services", "testimonial", "faq"].map((page) => (
+                <NavLink
+                  key={page}
+                  to={`/${page}`}
+                  className="dropdown-item"
+                  onClick={() => { closeMenu(); setShowPages(false); }}
+                >
+                  {page.charAt(0).toUpperCase() + page.slice(1)}
+                </NavLink>
+              ))}
             </div>
           )}
         </div>
@@ -139,4 +149,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
 

@@ -11,12 +11,12 @@
     src: url(/src/assets/static/Montserrat-Black.ttf);
 } */
 
-h1, h2, h3, h4, h5,h6 ,p {
+h1, h2, h3, h4, h5,h6 ,p,a {
     font-family: Montserrat;
     font-weight: 100;
 }
 
- a, span, input, select, textarea {
+  span, input, select, textarea {
     font-family: Protext;
     font-weight: 100;
 }

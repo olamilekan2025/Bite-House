@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -17,6 +13,7 @@ import Blog from "./Pages/BlogPage/blog";
 import Contact from "./Pages/ContactPage/contact";
 import Cart from "./Pages/Page/CartPage/Cart";
 import MealDetails from "./Utils/MealDetails/MealDetails";
+import BlogDetails from "./Utils/BlogDetailsPage/BlogDetails";
 
 // Dropdown Pages
 import Faq from "./Pages/Page/FaqPage/faq";
@@ -25,6 +22,8 @@ import NotFound from "./Pages/Page/NotFoundPage/notFound";
 
 // Utilities
 import SplashScreen from "./Utils/SplashScreen";
+import CheckoutForm from "./Utils/CheckoutFormPage/CheckoutForm";
+import Payment from "./Utils/PaymentPage/Payment";
 
 function AppWrapper() {
   const [loading, setLoading] = useState(true);
@@ -59,6 +58,10 @@ function AppWrapper() {
 
         {/* Meal Details */}
         <Route path="/meal/:id" element={<MealDetails />} />
+        <Route path="/blog/:id" element={<BlogDetails />} />
+        <Route path="checkoutForm" element={<CheckoutForm />} />
+        <Route path="/payment" element={<Payment />} />
+
 
         {/* Dropdown */}
    

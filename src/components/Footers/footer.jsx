@@ -27,11 +27,11 @@ function Footer() {
         <div className="footer-links">
           <h3>Explore</h3>
           <ul>
-            <li><MdKeyboardDoubleArrowLeft /><a href="#">Home</a></li>
-            <li><MdKeyboardDoubleArrowLeft /><a href="#">Menu</a></li>
+            <li><MdKeyboardDoubleArrowLeft /><a href="/">Home</a></li>
+            <li><MdKeyboardDoubleArrowLeft /><a href="shop">Shop</a></li>
             <li><MdKeyboardDoubleArrowLeft /><a href="#">Reservation</a></li>
-            <li><MdKeyboardDoubleArrowLeft /><a href="#">Gallery</a></li>
-            <li><MdKeyboardDoubleArrowLeft /><a href="#">Contact</a></li>
+            <li><MdKeyboardDoubleArrowLeft /><a href="/faq">Faq</a></li>
+            <li><MdKeyboardDoubleArrowLeft /><a href="contact">Contact</a></li>
           </ul>
         </div>
 
@@ -39,9 +39,30 @@ function Footer() {
         <div className="footer-contact">
           <h3>Follow Us</h3>
           <div className="social-icons">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaWhatsapp /></a>
+<a
+  href="https://www.facebook.com/OladunjoyeOlamilekan"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaFacebookF />
+</a>
+
+<a
+  href="https://www.instagram.com/oladunjoyejelil"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaInstagram />
+</a>
+
+<a
+  href="https://wa.me/2349129069652"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaWhatsapp />
+</a>
+
           </div>
 
           <h3 className="address-title">Address</h3>

@@ -91,12 +91,10 @@
 }
 
 
-
-
 .info-map-wrapper {
     width: 100%;
     display: flex;
-    background-color:rgba(0,0,0,0.9);
+    background-color:#E6E6E6;
 }
 
 .info-map-container {

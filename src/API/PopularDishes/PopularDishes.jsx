@@ -80,7 +80,7 @@ const PopularDishes = () => {
       </div>
 
       {visibleCount < meals.length && (
-        <button className="view-more-btn" onClick={handleViewMore}>
+        <button className="popular-view-more-btn" onClick={handleViewMore}>
           View More
         </button>
       )}

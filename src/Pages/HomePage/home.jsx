@@ -23,7 +23,7 @@ function Home() {
           <div className="hero-left" >
             <a className="tagline">Hot for every Sunday</a>
             <br />
-            <span className="hero-title">Enjoy our <a>delicius</a> food</span>
+            <span className="hero-title">Enjoy our <span>delicius</span> food</span>
 
             <p className="hero-text">
               Dive into a world of bold flavors, secret spices, and perfectly
