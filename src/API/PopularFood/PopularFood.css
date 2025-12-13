@@ -330,29 +330,32 @@
     padding: 10px;
   }
 
-  /* Grid becomes 1 column */
+
   .meal-grid {
+    width: 100%;
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 50px;
+  
+    
   }
 
-  /* Meal card */
+
   .meal-card {
     height: 220px;
-    padding: 15px;
+    padding: 20px;
     display: flex;
-    gap: 20px;
+    gap: 50px;
   }
 
-  /* Circular food image */
+
   .img-wrapper {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 8rem;
   }
 
   .meal-strMeal {
-  /* margin-right: 40px; */
+
     font-size: 20px;
     text-align: center;
   }
@@ -373,7 +376,7 @@
     font-size: 14px;
   }
 
-  /* Modal mobile full screen */
+
   .modal-overlay {
     padding-top: 80px;
   }
@@ -406,7 +409,7 @@
    top: 30px;
     right: 20px;
      z-index: 5;
-    /* position: static; */
+ 
   }
 
   .modal-details {
@@ -421,7 +424,7 @@
     font-size: 14px;
   }
 
-  /* Quantity buttons */
+  
   .quantity-control {
     gap: 10px;
     margin: 10px 0;
@@ -439,7 +442,6 @@
     font-size: 16px;
   }
 
-  /* Add to cart button */
   .add-to-cart {
     padding: 10px 0;
     font-size: 16px;
