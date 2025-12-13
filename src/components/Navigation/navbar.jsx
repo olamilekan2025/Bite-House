@@ -75,8 +75,8 @@ function Navbar() {
 
           {showPages && (
             <div className="dropdown-menu show">
-              <NavLink to="/chef" className="dropdown-item" onClick={closeMenu}>Chef</NavLink>
-              <NavLink to="/foodMenu" className="dropdown-item" onClick={closeMenu}>Food Menu</NavLink>
+
+
               <NavLink to="/gallery" className="dropdown-item" onClick={closeMenu}>Gallery</NavLink>
               <NavLink to="/reservation" className="dropdown-item" onClick={closeMenu}>Reservation</NavLink>
               <NavLink to="/services" className="dropdown-item" onClick={closeMenu}>Services</NavLink>

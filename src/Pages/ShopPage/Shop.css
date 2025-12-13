@@ -8,6 +8,7 @@
   justify-content: space-between;
   background: rgba(0,0,0,0.9);
   gap: 60px;
+  overflow: hidden;
 }
 
 

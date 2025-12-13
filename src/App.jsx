@@ -1,6 +1,9 @@
 
+
+
+
 import React, { useEffect, useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // Layout
 import Navbar from "./components/Navigation/navbar";
@@ -12,28 +15,16 @@ import About from "./Pages/AboutPage/about";
 import Shop from "./Pages/ShopPage/shop";
 import Blog from "./Pages/BlogPage/blog";
 import Contact from "./Pages/ContactPage/contact";
-import Cart from "./Pages/Page/CartPage/Cart"
+import Cart from "./Pages/Page/CartPage/Cart";
+import MealDetails from "./Utils/MealDetails/MealDetails";
 
 // Dropdown Pages
-import Chef from "./Pages/Page/ChefPage/chef";
 import Faq from "./Pages/Page/FaqPage/faq";
-import FoodMenu from "./Pages/Page/FoodMenuPage/foodMenu";
-import Reservation from "./Pages/Page/ReservationPage/reservation";
-import Services from "./Pages/Page/ServicesPage/services";
-import Testimonial from "./Pages/Page/TestimonialPage/testimonial";
-import Gallery from "./Pages/Page/GalleryPage/gallery";
 import MyAccount from "./Pages/Page/MyAccountPage/myAccount";
 import NotFound from "./Pages/Page/NotFoundPage/notFound";
 
 // Utilities
 import SplashScreen from "./Utils/SplashScreen";
-import Info from "./Utils/InfoPage/infor";
-import ServiceHook from "./Utils/ServiceHookPage/ServiceHook";
-import PopularFood from "./API/PopularFood/popularFood";
-import PopularDishes from "./API/PopularDishes/PopularDishes";
-import Register from "./Pages/register";
-import ClientReviews from "./Utils/ClientReviewsPage/ClientReviews";
-import OurChef from "./Utils/OurChefPage/ourChef"
 
 function AppWrapper() {
   const [loading, setLoading] = useState(true);
@@ -56,6 +47,7 @@ function AppWrapper() {
   return (
     <>
       <Navbar />
+
       <Routes>
         {/* Main */}
         <Route path="/" element={<Home />} />
@@ -63,30 +55,20 @@ function AppWrapper() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/cart" element={<Cart/>} />
+        <Route path="/cart" element={<Cart />} />
 
-        {/* Dropdown Pages */}
-        <Route path="/chef" element={<Chef />} />
-        <Route path="/foodMenu" element={<FoodMenu />} />
-        <Route path="/gallery" element={<Gallery />} />
+        {/* Meal Details */}
+        <Route path="/meal/:id" element={<MealDetails />} />
+
+        {/* Dropdown */}
+   
         <Route path="/myAccount" element={<MyAccount />} />
-        <Route path="/reservation" element={<Reservation />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/testimonial" element={<Testimonial />} />
         <Route path="/faq" element={<Faq />} />
-
-        {/* Other */}
-        <Route path="/info" element={<Info />} />
-        <Route path="/serviceHook" element={<ServiceHook />} />
-        <Route path="/popularFood" element={<PopularFood />} />
-        <Route path="/popularDishes" element={<PopularDishes />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/clientReviews" element={<ClientReviews />} />
-        <Route path="/ourChef" element={<OurChef />} />
 
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+
       <Footer />
     </>
   );
@@ -95,3 +77,4 @@ function AppWrapper() {
 export default function App() {
   return <AppWrapper />;
 }
+

@@ -101,13 +101,13 @@ function PopularFood() {
         {meals.map((meal) => (
           <div
             key={meal.idMeal}
-            className="meal-card"
+            className="meal-cardss"
             onClick={() => openModal(meal)}
           >
             <div className="img-wrapper">
               <img src={meal.strMealThumb} alt={meal.strMeal} />
             </div>
-            <div className="meal-details">
+            <div className="meal-detailss">
               <h3 className="meal-strMeal">{meal.strMeal}</h3>
               <div className="meal-price-contect">
                 <p className="meal-price">₦{meal.price.toLocaleString()}</p>

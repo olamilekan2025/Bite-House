@@ -1,5 +1,6 @@
 import "./Shop.css";
 import { useEffect } from "react";
+import SwitchMeals from "../../Utils/SwitchMeals/switchMeals";
 import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -16,6 +17,7 @@ function Shop() {
   }, []);
 
   return (
+    <>
     <main className="shop">
      
       <div className="text-block" data-aos="fade-right">
@@ -43,9 +45,11 @@ function Shop() {
         <img
           src="https://res.cloudinary.com/divio4grm/image/upload/v1765381231/istockphoto-2239895795-612x612_tkfmjd.jpg"
           alt="Shop Bite House Products"
-        />
+          />
       </div>
     </main>
+    <SwitchMeals/>
+          </>
   );
 }
 
