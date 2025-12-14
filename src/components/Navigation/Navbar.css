@@ -77,7 +77,7 @@ display: flex;
 }
 
 .nav-link.active {
-  color: #057C37;
+  color: #23B12C;
 }
 
 
@@ -96,18 +96,18 @@ display: flex;
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: 45px;
   left: 0;
   min-width: 220px;
 
-  background: #101828;
+  background: #fff;
   border-radius: 12px;
   padding: 8px;
-
+height: 150px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-
+overflow-y: auto;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.06);
 
@@ -129,12 +129,12 @@ display: flex;
 
 /* ===== Dropdown Item ===== */
 .dropdown-item {
-  color: #e6e6e6;
+  color: #101828;
   padding: 10px 14px;
   text-decoration: none;
   font-size: 14px;
   border-radius: 8px;
-
+font-weight: bold;
   display: flex;
   align-items: center;
   transition: all 0.25s ease;
@@ -426,6 +426,7 @@ align-items: center;  align-items: center;
   .dropdown-item {
     padding: 12px 0;
     font-size: 17px;
+    color: #fff;
   }
 
 

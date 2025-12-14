@@ -1,172 +1,8 @@
 
-
-// import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { useAuth } from "../../../context/AuthContext";
-// import logo from "../../../assets/BITE-removebg-preview.png";
-// import "./MyAccount.css";
-
-// const MyAccount = () => {
-//   const { signup, login } = useAuth();
-//   const navigate = useNavigate();
-
-//   const [activeForm, setActiveForm] = useState("login");
-//   const [errors, setErrors] = useState("");
-
-//   const [signupData, setSignupData] = useState({
-//     name: "",
-//     email: "",
-//     password: "",
-//     confirmPassword: "",
-//   });
-
-//   const [loginData, setLoginData] = useState({
-//     email: "",
-//     password: "",
-//   });
-
-//   // SIGNUP
-//   const handleSignup = async (e) => {
-//     e.preventDefault();
-//     setErrors("");
-
-//     if (signupData.password !== signupData.confirmPassword) {
-//       setErrors("Passwords do not match");
-//       return;
-//     }
-
-//     try {
-//       await signup({
-//         name: signupData.name,
-//         email: signupData.email,
-//         password: signupData.password,
-//       });
-//       setSignupData({ name: "", email: "", password: "", confirmPassword: "" });
-//       setActiveForm("login");
-//       alert("Account created successfully! Please login.");
-//     } catch (err) {
-//       setErrors(err.message || "Signup failed");
-//     }
-//   };
-
- 
-//   const handleLogin = async (e) => {
-//     e.preventDefault();
-//     setErrors("");
-//     try {
-//       const ok = await login(loginData.email, loginData.password);
-//       if (!ok) throw new Error("Invalid email or password");
-//       navigate("/");
-//     } catch (err) {
-//       setErrors(err.message);
-//     }
-//   };
-
-//   return (
-//     <div className="account-container">
-//       <div className="account-text-wrapper">
-//         <h1 className="account-heading">
-//           <span>Your Food Journey Starts Here</span>
-//           <p> Sign up or login to explore a world of delicious meals, customize your favorite dishes, track all your orders in real time, save your preferences, and enjoy exclusive deals, promotions, and special offers crafted just for you!</p>
-//         </h1>
-//       </div>
-
-   
-//       {activeForm === "login" && (
-//         <form className="form-box" onSubmit={handleLogin}>
-//           <div className="form-header">
-//             <h2><span>WELCOME BACK</span></h2>
-//             <img src={logo} alt="BiteHouse" />
-//           </div>
-
-//           {errors && <p className="error">{errors}</p>}
-
-//           <input
-//             type="email"
-//             placeholder="Email Address"
-//             value={loginData.email}
-//             required
-//             onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
-//           />
-
-//           <input
-//             type="password"
-//             placeholder="Password"
-//             value={loginData.password}
-//             required
-//             onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
-//           />
-
-//           <button className="submit-btn" type="submit">Login</button>
-
-//           <p className="switch-link">
-//             New here?{" "}
-//             <span onClick={() => { setActiveForm("signup"); setErrors(""); }}>Create account</span>
-//           </p>
-//         </form>
-//       )}
-
-   
-//       {activeForm === "signup" && (
-//         <form className="form-box" onSubmit={handleSignup}>
-//           <div className="form-header">
-//             <h2><span>Create Account</span></h2>
-//             <img src={logo} alt="BiteHouse" />
-//           </div>
-
-//           {errors && <p className="error">{errors}</p>}
-
-//           <input
-//             type="text"
-//             placeholder="Full Name"
-//             value={signupData.name}
-//             required
-//             onChange={(e) => setSignupData({ ...signupData, name: e.target.value })}
-//           />
-
-//           <input
-//             type="email"
-//             placeholder="Email Address"
-//             value={signupData.email}
-//             required
-//             onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
-//           />
-
-//           <input
-//             type="password"
-//             placeholder="Password"
-//             value={signupData.password}
-//             required
-//             onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
-//           />
-
-//           <input
-//             type="password"
-//             placeholder="Confirm Password"
-//             value={signupData.confirmPassword}
-//             required
-//             onChange={(e) => setSignupData({ ...signupData, confirmPassword: e.target.value })}
-//           />
-
-//           <button className="submit-btn" type="submit">Create Account</button>
-
-//           <p className="switch-link">
-//             Have an account?{" "}
-//             <span onClick={() => { setActiveForm("login"); setErrors(""); }}>Login</span>
-//           </p>
-//         </form>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default MyAccount;
-
-
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import logo from "../../../assets/BITE-removebg-preview.png";
 import "./MyAccount.css";
 
@@ -176,6 +12,14 @@ const MyAccount = () => {
 
   const [activeForm, setActiveForm] = useState("login");
   const [errors, setErrors] = useState("");
+
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [signupLoading, setSignupLoading] = useState(false);
+
+  // 🔹 Password visibility states
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [showSignupPassword, setShowSignupPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [signupData, setSignupData] = useState({
     name: "",
@@ -189,49 +33,58 @@ const MyAccount = () => {
     password: "",
   });
 
-  // Redirect if already logged in
   useEffect(() => {
-    if (user) navigate("/"); // redirect if already logged in
+    if (user) navigate("/");
   }, [user, navigate]);
 
-  // SIGNUP
+  // ================= SIGNUP =================
   const handleSignup = (e) => {
     e.preventDefault();
     setErrors("");
+    setSignupLoading(true);
 
     if (signupData.password !== signupData.confirmPassword) {
       setErrors("Passwords do not match");
+      setSignupLoading(false);
       return;
     }
 
-    // Use AuthContext signup
     const newUser = {
       name: signupData.name.trim(),
       email: signupData.email.trim().toLowerCase(),
       password: signupData.password,
     };
 
-    signup(newUser);
-
-    setSignupData({ name: "", email: "", password: "", confirmPassword: "" });
-    setActiveForm("login");
-    alert("Account created successfully! Please login.");
+    setTimeout(() => {
+      signup(newUser);
+      setSignupLoading(false);
+      setSignupData({ name: "", email: "", password: "", confirmPassword: "" });
+      setActiveForm("login");
+      alert("Account created successfully! Please login.");
+    }, 1200);
   };
 
-  // LOGIN
+  // ================= LOGIN =================
   const handleLogin = (e) => {
     e.preventDefault();
     setErrors("");
+    setLoginLoading(true);
 
-    const ok = login(loginData.email.trim().toLowerCase(), loginData.password);
-    if (!ok) {
-      setErrors("Invalid email or password");
-      return;
-    }
+    setTimeout(() => {
+      const ok = login(
+        loginData.email.trim().toLowerCase(),
+        loginData.password
+      );
 
-    setLoginData({ email: "", password: "" });
-    alert("Login successful!");
-    navigate("/"); // redirect to home
+      if (!ok) {
+        setErrors("Invalid email or password");
+        setLoginLoading(false);
+        return;
+      }
+
+      setLoginLoading(false);
+      navigate("/");
+    }, 1200);
   };
 
   return (
@@ -240,14 +93,13 @@ const MyAccount = () => {
         <h1 className="account-heading">
           <span>Your Food Journey Starts Here</span>
           <p>
-            Sign up or login to explore a world of delicious meals, customize
-            your favorite dishes, track your orders in real time, and enjoy
+            Sign up or login to explore delicious meals, track orders, and enjoy
             exclusive deals.
           </p>
         </h1>
       </div>
 
-      {/* LOGIN FORM */}
+      {/* ================= LOGIN ================= */}
       {activeForm === "login" && (
         <form className="form-box" onSubmit={handleLogin}>
           <div className="form-header">
@@ -262,18 +114,33 @@ const MyAccount = () => {
             placeholder="Email Address"
             value={loginData.email}
             required
-            onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
+            onChange={(e) =>
+              setLoginData({ ...loginData, email: e.target.value })
+            }
           />
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={loginData.password}
-            required
-            onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
-          />
+          {/* Password with toggle */}
+          <div className="password-field">
+            <input
+              type={showLoginPassword ? "text" : "password"}
+              placeholder="Password"
+              value={loginData.password}
+              required
+              onChange={(e) =>
+                setLoginData({ ...loginData, password: e.target.value })
+              }
+            />
+            <span
+              className="eye-icon"
+              onClick={() => setShowLoginPassword(!showLoginPassword)}
+            >
+              {showLoginPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
-          <button className="submit-btn" type="submit">Login</button>
+          <button className="submit-btn" type="submit" disabled={loginLoading}>
+            {loginLoading ? <span className="btn-spinner"></span> : "Login"}
+          </button>
 
           <p className="switch-link">
             New here?{" "}
@@ -284,7 +151,7 @@ const MyAccount = () => {
         </form>
       )}
 
-      {/* SIGNUP FORM */}
+      {/* ================= SIGNUP ================= */}
       {activeForm === "signup" && (
         <form className="form-box" onSubmit={handleSignup}>
           <div className="form-header">
@@ -299,7 +166,9 @@ const MyAccount = () => {
             placeholder="Full Name"
             value={signupData.name}
             required
-            onChange={(e) => setSignupData({ ...signupData, name: e.target.value })}
+            onChange={(e) =>
+              setSignupData({ ...signupData, name: e.target.value })
+            }
           />
 
           <input
@@ -307,26 +176,57 @@ const MyAccount = () => {
             placeholder="Email Address"
             value={signupData.email}
             required
-            onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
+            onChange={(e) =>
+              setSignupData({ ...signupData, email: e.target.value })
+            }
           />
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={signupData.password}
-            required
-            onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
-          />
+          {/* Password */}
+          <div className="password-field">
+            <input
+              type={showSignupPassword ? "text" : "password"}
+              placeholder="Password"
+              value={signupData.password}
+              required
+              onChange={(e) =>
+                setSignupData({ ...signupData, password: e.target.value })
+              }
+            />
+            <span
+              className="eye-icon"
+              onClick={() => setShowSignupPassword(!showSignupPassword)}
+            >
+              {showSignupPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={signupData.confirmPassword}
-            required
-            onChange={(e) => setSignupData({ ...signupData, confirmPassword: e.target.value })}
-          />
+          {/* Confirm Password */}
+          <div className="password-field">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder="Confirm Password"
+              value={signupData.confirmPassword}
+              required
+              onChange={(e) =>
+                setSignupData({
+                  ...signupData,
+                  confirmPassword: e.target.value,
+                })
+              }
+            />
+            <span
+              className="eye-icon"
+              onClick={() =>
+                setShowConfirmPassword(!showConfirmPassword)
+              }
+            >
+              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
-          <button className="submit-btn" type="submit">Create Account</button>
+          <button className="submit-btn" type="submit" disabled={signupLoading}>
+            {signupLoading ? <span className="btn-spinner"></span> : "Create Account"}
+          </button>
 
           <p className="switch-link">
             Have an account?{" "}

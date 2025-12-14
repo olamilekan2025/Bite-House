@@ -36,7 +36,7 @@ function PopularFood() {
       .catch(() => setLoading(false));
   }, []);
 
-  // Show spinner while loading
+
   if (loading) 
     return (
       <div className="loader-container">

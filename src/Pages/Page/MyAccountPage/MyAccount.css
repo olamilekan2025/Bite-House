@@ -6,7 +6,7 @@
   align-items: flex-start;
   gap: 80px;
   flex-wrap: wrap;
-  background-color: rgba(0,0,0,0.9);
+  background-color: #fff;
 }
 
 
@@ -34,13 +34,13 @@
 .account-heading > p {
    font-size: 20px;
   font-weight: 400;
-  color: #fff;
+  color: #000;
   line-height: 30px;
 }
 
 .account-sub {
   font-size: 18px;
-  color: #fff;
+  color: #000;
   margin-bottom: 15px;
   line-height: 1.6;
   font-weight: 500;
@@ -52,8 +52,8 @@
   background: #101828;
   padding: 25px 30px;
   border-radius: 15px;
-  border: 2px solid #d8f3dc;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.07);
+  border: 2px solid #23B12C;
+
   animation: fadeInUp 0.7s ease;
 }
 
@@ -312,4 +312,64 @@ color: #101828;
   border-radius: 50px;
   font-size: 16px;
   cursor: pointer;
+}
+
+
+
+
+
+/* ===== Button Spinner ===== */
+.btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #fff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: btnSpin 0.8s linear infinite;
+}
+
+@keyframes btnSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disable button look */
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.password-field {
+  position: relative;
+  width: 100%;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 45px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #23B12C;
+}
+
+/* optional hover */
+.eye-icon:hover {
+  color: #1a8c21;
 }
