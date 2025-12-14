@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FaNairaSign } from "react-icons/fa6";
 import { FaStar, FaArrowLeft, FaShoppingCart } from "react-icons/fa";
-import { useCart } from "../../context/CartContext"; 
+import { useCart } from "../../context/CartContext";
 import "./MealDetails.css";
 
 const MealDetails = () => {
@@ -53,18 +53,21 @@ const MealDetails = () => {
 
   return (
     <section className="meal-details">
-     
-
       <div className="details-card">
         <img src={meal.strMealThumb} alt={meal.strMeal} />
 
         <div className="details-content">
-            <div className="meal-deatils-back-menu">
-    <h2><span> <button className="back-btn" onClick={() => navigate(-1)}>
-        <FaArrowLeft /> 
-      </button></span>{meal.strMeal}</h2>
-            </div>
-      
+          <div className="meal-deatils-back-menu">
+            <h2>
+              <span>
+                {" "}
+                <button className="meal-back-btn" onClick={() => navigate(-1)}>
+                  <FaArrowLeft />
+                </button>
+              </span>
+                 {meal.strMeal}
+            </h2>
+          </div>
 
           <div className="rating">
             {[...Array(5)].map((_, i) => (
@@ -76,7 +79,6 @@ const MealDetails = () => {
             <span>({rating})</span>
           </div>
 
-        
           <p className="meta">
             <span>{meal.strCategory}</span>
             <span>{meal.strArea}</span>
@@ -84,14 +86,12 @@ const MealDetails = () => {
 
           <p className="instructions">{meal.strInstructions}</p>
 
-          
           <div className="quantity">
             <button onClick={() => qty > 1 && setQty(qty - 1)}>-</button>
             <span>{qty}</span>
             <button onClick={() => setQty(qty + 1)}>+</button>
           </div>
 
-         
           <p className="price">
             <FaNairaSign /> {(price * qty).toFixed(2)}
           </p>

@@ -21,13 +21,18 @@ const BlogDetails = () => {
   return (
     <div className="blog-details">
       <img src={post.image} alt={post.title} />
-      <h1>{post.title}</h1>
+      <div className="blog-detailstextContext">
+<div className="blog-btn-name">
+
+      <h1><Link to="/blog" className="blog-details-back-btn">
+        ← 
+      </Link>{post.title}</h1>
+</div>
       <p className="meta">{post.date} • {post.author}</p>
       <p className="content">{post.content}</p>
 
-      <Link to="/blog" className="back-btn">
-        ← 
-      </Link>
+      
+      </div>
     </div>
   );
 };

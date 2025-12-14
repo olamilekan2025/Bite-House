@@ -1,7 +1,4 @@
 
-
-
-
 import React, { useState, useEffect } from "react";
 import { useCart } from "../../context/CartContext"; 
 import "./PopularFood.css";
@@ -39,7 +36,13 @@ function PopularFood() {
       .catch(() => setLoading(false));
   }, []);
 
-  if (loading) return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
+  // Show spinner while loading
+  if (loading) 
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
 
   const openModal = (meal) => {
     setSelectedMeal(meal);
@@ -66,7 +69,6 @@ function PopularFood() {
     });
   };
 
-  // <-- Updated Add to Cart
   const handleAddToCart = () => {
     const success = addToCart({ 
       ...selectedMeal, 
@@ -164,4 +166,5 @@ function PopularFood() {
 }
 
 export default PopularFood;
+
 

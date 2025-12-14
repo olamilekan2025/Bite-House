@@ -83,7 +83,7 @@
   line-height: 1.6;
 }
 
-/* ✅ Read More Button */
+
 .read-more-btn {
   display: inline-block;
   margin-top: 15px;
@@ -101,7 +101,7 @@
   background: #1a8f22;
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
   .blog-header h1 {
     font-size: 28px;

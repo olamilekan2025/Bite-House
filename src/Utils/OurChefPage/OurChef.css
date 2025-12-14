@@ -1,6 +1,6 @@
 .chef-section {
   padding: 80px 3%;
-  background: #f7f7f7;
+  background: #fff;
 }
 
 .chef-header {
@@ -80,7 +80,7 @@
   object-fit: contain;
 }
 
-/* Text */
+
 .chef-name {
   font-size: 20px;
   font-weight: 700;
@@ -100,10 +100,6 @@
   margin-top: 10px;
   line-height: 1.5;
 }
-
-
-
-
 
 
 .medial {

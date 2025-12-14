@@ -5,7 +5,7 @@
   gap: 60px;
   padding: 80px 3% 80px 4%;
   font-family: Arial, sans-serif;
-  background-color: rgba(0,0,0,0.9);
+  background-color: #fff;
   overflow: hidden;
 }
 
@@ -30,7 +30,7 @@
 .contact-text-wrapper p {
   font-size: 18px;
   line-height: 1.8;
-  color: #fff;
+  color: #000;
 }
 
 .button-container {
@@ -79,7 +79,9 @@
   .contact-container {
     flex-direction: column;
     text-align: center;
+    justify-content: center;
     gap: 40px;
+    display: flex;
     padding: 120px 5%;
   }
 
@@ -95,7 +97,7 @@
     font-size: 32px;
   }
   .button-container {
-    width: 80%;
+    width: 100%;
   }
   .button-container  > a  {
     font-size: 17px;
@@ -121,9 +123,10 @@
 
 .formContainer {
   flex: 1;
-  max-width: 550px;
+  max-width: 400px;
   height: fit-content;
     top: 100px;
+
    
 }
 

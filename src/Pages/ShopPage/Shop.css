@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(0,0,0,0.9);
+  background: #fff;
   gap: 60px;
   overflow: hidden;
 }
@@ -32,7 +32,7 @@
 
 
 .shop .text-block p {
-  color: #fff;
+  color: #000;
   font-size: 17px;
   line-height: 1.8;
   margin-bottom: 18px;
