@@ -30,7 +30,7 @@
 .meal-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 60px;
+  /* gap: 70px; */
   
 }
 
@@ -39,7 +39,7 @@
   background: #fff;
   border-radius: 13px;
   padding: 10px;
-  height: 200px;
+  height: 250px;
   text-align: center;
   justify-content: flex-end;
   align-items: center;
@@ -59,7 +59,7 @@
   width: 110px;       
   height: 110px;     
   border-radius: 50%;
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 }
 
 .img-wrapper img {
@@ -99,7 +99,8 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 27px;
+ 
   
 }
 
@@ -340,8 +341,8 @@
   }
 
 
-  .meal-card {
-    height: 220px;
+  .meal-cardss {
+    height: 300px;
     padding: 20px;
     display: flex;
     gap: 50px;
@@ -351,13 +352,14 @@
   .img-wrapper {
     width: 80px;
     height: 80px;
-    margin-bottom: 8rem;
+    margin-bottom: 12rem;
   }
 
   .meal-strMeal {
 
     font-size: 20px;
     text-align: center;
+   
   }
 
  

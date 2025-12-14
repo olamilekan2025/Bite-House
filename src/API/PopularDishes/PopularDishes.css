@@ -183,7 +183,7 @@ background: #fff;
   border: none;
 }
 
-/* ANIMATION */
+
 @keyframes fadeIn {
   from {transform: scale(0.8); opacity: 0;}
   to {transform: scale(1); opacity: 1;}
@@ -208,3 +208,30 @@ background: #fff;
 .popular-view-more-btn:hover {
   background: #23B12C;
 }
+
+
+
+@media (max-width: 768px) {
+
+  .title {
+    width: 100%;
+    font-size: 35px;
+    font-weight: bold;
+
+  }
+  .icon-wrapper {
+    opacity: 1 !important;    
+  }
+
+
+  .dish-card:hover {
+    transform: none;
+    background-color: #fff;
+  }
+
+  .dish-card:hover > .dish-name,
+  .dish-card:hover > .dish-category {
+    color: inherit;
+  }
+}
+

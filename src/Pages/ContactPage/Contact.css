@@ -222,9 +222,15 @@ textarea:focus {
     flex-direction: column;
     padding: 60px 5%;
     text-align: center;
+
   }
 
   .formContainer {
+    width: 100%;
+
+  }
+
+  .formContainer form {
     width: 100%;
   }
 
