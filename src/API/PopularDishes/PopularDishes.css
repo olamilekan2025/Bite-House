@@ -1,237 +1,251 @@
 
 .popular-container {
-  padding: 70px 8%;
-  background: #fafafa;
+  padding: 70px 5% 70px 4.8%;
+  background: whitesmoke;
+  position: relative;
+}
+
+
+.popular-dishes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .title {
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 40px;
-  font-weight: 700;
+  font-size: 36px;
+  font-weight: 800;
+  color: #222;
+}
+
+.popular-view-more-btn {
+font-weight: bold;
+  color: #23B12C;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+
+
+.carousel-buttons {
+  position: absolute;
+  top: 27rem;
+  left: 46%;
+  display: flex;
+  gap: 17px;
+  z-index: 5;
+}
+
+.scroll-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: #333;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease;
 }
 
 
 .dishes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  display: flex;
   gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
 }
 
+.dishes-grid::-webkit-scrollbar {
+  display: none;
+}
 
 .dish-card {
+  min-width: 260px;
   background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 18px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
   position: relative;
-  overflow: hidden;
-  transition: .3s;
 }
 
-.dish-card:hover {
-  transform: translateY(-5px);
-  background-color: #101828;
+
+
+.icon-wrapper {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  background: #fff;
+  width: 34px;
+  height: 34px;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease;
+}
+
+.icon:hover {
+  background: #23B12C;
+  color: #fff;
 }
 
 
 .dish-image {
-  width: 180px;
-  height: 180px;
+  width: 100%;
+  height: 170px;
   object-fit: cover;
-  border-radius: 50%;
-  margin: auto;
-  display: block;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
 }
 
 
-.icon-wrapper {
-position: absolute;
-  top: 15px;
-  right: 15px;                 
+.dish-name-category {
+ 
+  padding:10px 10px  20px 10px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  z-index: 10;
-  opacity: 0;                 
-  transition: opacity 0.3s ease;
 }
-
-.dish-card:hover .icon-wrapper {
- opacity: 1;
-}
-
-.icon {
-background: #fff;
-  backdrop-filter: blur(4px);
-  padding: 12px;
-  border-radius: 50%;
-  color: #000;
-  font-size: 18px;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-}
-
-
-
-.icon:hover {
- background: #23B12C;
-  transform: scale(1.1);
-}
-
+/* Text */
 .dish-name {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 20px;
+  margin-top: 14px;
+  font-size: 18px;
   font-weight: 700;
+  color: #222;
 }
-.dish-card:hover > .dish-name  {
-    color: #fff;
-}
-.dish-card:hover > .dish-category  {
-    color: #fff;
-}
+
 .dish-category {
+  font-size: 14px;
+  color: #777;
+}
+
+
+.loading {
   text-align: center;
-  color: #888;
+  padding: 80px 0;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modal-box {
-  background: white;
-  padding: 30px;
-  width: 420px;
-  border-radius: 15px;
+  background: #fff;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 20px;
+  padding: 22px;
   text-align: center;
-  animation: fadeIn .3s;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .modal-img {
-  width: 180px;
-  height: 180px;
-  border-radius: 12px;
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
   object-fit: cover;
 }
 
+/* Qty */
 .qty-box {
-  margin: 20px 0;
   display: flex;
   justify-content: center;
-  gap: 20px;
   align-items: center;
+  gap: 18px;
+  margin: 20px 0;
 }
 
 .qty-btn {
- width: 20px;
-  height: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-
+  font-size: 18px;
+  cursor: pointer;
+  color: #e63946;
 }
 
 .qty-num {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
 }
 
+
 .total-price {
-  margin: 10px 0;
-  font-size: 24px;
-  color: #23B12C;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 18px;
 }
+
 
 .add-btn {
   width: 100%;
   padding: 12px;
-  background: #23B12C;
-  color: #fff;
+  border-radius: 30px;
   border: none;
-  border-radius: 8px;
-  margin-top: 10px;
-  font-size: 18px;
+  background: #e63946;
+  color: #fff;
+  font-size: 16px;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.add-btn:hover {
+  background: #c92d3a;
 }
 
 .close-btn {
-  margin-top: 15px;
-  background: #101828;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
+  margin-top: 12px;
+  background: transparent;
   border: none;
-}
-
-
-@keyframes fadeIn {
-  from {transform: scale(0.8); opacity: 0;}
-  to {transform: scale(1); opacity: 1;}
-}
-
-
-
-
-.popular-view-more-btn {
-  margin: 40px auto 0;
-  display: block;
-  padding: 12px 30px;
-  background: #101828;
-  color: white;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
+  color: #555;
   cursor: pointer;
-  transition: .3s ease;
+  font-size: 14px;
 }
 
-.popular-view-more-btn:hover {
-  background: #23B12C;
-}
-
-
-
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
-
   .title {
-    width: 100%;
-    font-size: 35px;
-    font-weight: bold;
-
-  }
-  .icon-wrapper {
-    opacity: 1 !important;    
+    font-size: 28px;
   }
 
-
-  .dish-card:hover {
-    transform: none;
-    background-color: #fff;
+  .carousel-buttons {
+    display: none;
   }
 
-  .dish-card:hover > .dish-name,
-  .dish-card:hover > .dish-category {
-    color: inherit;
+  .dish-card {
+    min-width: 230px;
   }
 }
-

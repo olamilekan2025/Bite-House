@@ -67,37 +67,14 @@ function Navbar() {
       </NavLink>
 
       <nav className={`nav-menu ${isOpen ? "open" : ""}`}>
-        <NavLink to="/" className="nav-link" onClick={closeMenu}>Home</NavLink>
+        {/* <NavLink to="/" className="nav-link" onClick={closeMenu}>Home</NavLink> */}
         <NavLink to="/about" className="nav-link" onClick={closeMenu}>About</NavLink>
         <NavLink to="/shop" className="nav-link" onClick={closeMenu}>Shop</NavLink>
 
-        <div className="pages-wrapper" ref={pagesRef}>
-          <button
-            className="nav-link dropdown-toggle"
-            onClick={() => setShowPages(!showPages)}
-            type="button"
-          >
-            Pages <FaChevronDown className={`down-icon ${showPages ? "open" : ""}`} />
-          </button>
-
-          {showPages && (
-            <div className="dropdown-menu show">
-              {["gallery", "reservation", "services", "testimonial", "faq"].map((page) => (
-                <NavLink
-                  key={page}
-                  to={`/${page}`}
-                  className="dropdown-item"
-                  onClick={() => { closeMenu(); setShowPages(false); }}
-                >
-                  {page.charAt(0).toUpperCase() + page.slice(1)}
-                </NavLink>
-              ))}
-            </div>
-          )}
-        </div>
 
         <NavLink to="/blog" className="nav-link" onClick={closeMenu}>Blog</NavLink>
         <NavLink to="/contact" className="nav-link" onClick={closeMenu}>Contact</NavLink>
+        <NavLink to="/faq" className="nav-link" onClick={closeMenu}>Faq</NavLink>
 
         <NavLink to="/cart" className="nav-link cart-link" onClick={closeMenu}>
           <BsCart4 />

@@ -1,14 +1,16 @@
 
 .infoContainer {
   display: grid;
+  max-width: auto;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 35px;
-  padding: 80px 3% 80px 4%;
+  padding: 80px 5% 80px 4.7%;
   place-items: center;
 }
 
 
 .infoCard {
+  max-width: auto;
     width: 100%;
   background: #ffffff;
   padding: 45px 32px;
@@ -44,8 +46,7 @@
 
 .icon-inner {
   font-size: 36px;
-  color: #111;
-  animation: rotateIcon 3.5s linear infinite;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,14 +96,14 @@
     width: 100%;
     display: flex;
     background-color:#E6E6E6;
+    padding: 0px 63px 0px 60px;
 }
 
 .info-map-container {
-  width: 1000px;
+  width: 100%;
   height: 500px;
   margin: 50px auto;
   overflow: hidden;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 
   box-shadow: 0 12px 40px rgba(0,0,0,0.2);
 
@@ -116,21 +117,15 @@
 
 
 
-@media (max-width: 600px) {
-  .info-map-container {
-    width: 92vw;
-    height: 300px;
-    margin: 40px auto;
-    border: 4px solid #e3a24b;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  }
-}
-
-/* 📱 Small phones (up to 390px) */
 @media (max-width: 390px) {
+  .info-map-wrapper  {
+    padding: 10px;
+  }
   .info-map-container {
+    width: 100%;
     height: 250px;
-    border: 3px solid #e3a24b;
+   
+    padding: 0;
   }
 }
 

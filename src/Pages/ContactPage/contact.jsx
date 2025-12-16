@@ -29,7 +29,7 @@ function Contact() {
           </p>
 
           <div className="button-container" data-aos="fade-down-right">
-            <Link to="/">Home/</Link><span>Contact</span>
+            <Link to="/">Home  /</Link><Link> Contact</Link>
           </div>
         </div>
         <div className="contact-image-wrapper"data-aos="fade-left">

@@ -24,6 +24,9 @@ import NotFound from "./Pages/Page/NotFoundPage/notFound";
 import SplashScreen from "./Utils/SplashScreen";
 import CheckoutForm from "./Utils/CheckoutFormPage/CheckoutForm";
 import Payment from "./Utils/PaymentPage/Payment";
+import ScrollToTop from "./Utils/ScrollToTop/ScrollToTop";
+import AllMeals from "./Pages/AllMealsPage/AllMeals";
+import AllDishes from "./Pages/AllDishesPage/AllDishes";
 
 function AppWrapper() {
   const [loading, setLoading] = useState(true);
@@ -58,6 +61,8 @@ function AppWrapper() {
 
         {/* Meal Details */}
         <Route path="/meal/:id" element={<MealDetails />} />
+         <Route path="/all-meals" element={<AllMeals />} />
+           <Route path="/all-dishes" element={<AllDishes />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="checkoutForm" element={<CheckoutForm />} />
         <Route path="/payment" element={<Payment />} />
@@ -71,7 +76,7 @@ function AppWrapper() {
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-
+      <ScrollToTop/>
       <Footer />
     </>
   );

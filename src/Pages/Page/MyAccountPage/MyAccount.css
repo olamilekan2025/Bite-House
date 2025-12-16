@@ -1,6 +1,7 @@
 .account-container {
+  max-width: auto;
   width: 100%;
-  padding: 120px 3% 80px 4%;
+  padding: 120px 4.9% 80px 4.9%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -373,3 +374,5 @@ color: #101828;
 .eye-icon:hover {
   color: #1a8c21;
 }
+
+

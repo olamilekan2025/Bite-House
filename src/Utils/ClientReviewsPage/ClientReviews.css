@@ -1,8 +1,11 @@
 
 .review-section {
-  padding: 80px 0% 20px 1%;
-  background: whitesmoke;
+  max-width: auto;
+  padding: 80px 2% 20px 1%;
+  background: #E1E1E1;
   overflow: hidden;
+  
+
 
 }
 
@@ -27,8 +30,12 @@
 
 
 .review-slider {
-  max-width: 1100px;
+  max-width: auto;
+  width: 98%;
   margin: auto;
+  display: flex;
+  padding: 2%;
+  gap: 20px;
  
 }
 
@@ -37,7 +44,8 @@
 }
 
 .review-slider .slick-list {
-  margin: 0 -15px;
+  /* margin: 0 -15px; */
+  background-color: transparent;
 }
 
 

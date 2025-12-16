@@ -1,5 +1,7 @@
 import React from "react";
-import { FaFacebookF, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FiFacebook } from "react-icons/fi";
+import { PiWhatsappLogo } from "react-icons/pi";
+import {  FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 import "./OurChef.css";
 
@@ -63,11 +65,11 @@ const OurChef = () => {
             <p className="chef-role">{chef.role}</p>
          <div className="medial">
   <a href="#" aria-label="Facebook" className="social-icon facebook">
-    <FaFacebookF />
+   <FiFacebook />
   </a>
 
   <a href="#" aria-label="WhatsApp" className="social-icon whatsapp">
-    <FaWhatsapp />
+    <PiWhatsappLogo />
   </a>
 
   <a href="#" aria-label="Instagram" className="social-icon instagram">

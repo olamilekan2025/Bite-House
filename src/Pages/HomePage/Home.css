@@ -4,6 +4,7 @@
 
 
 .home {
+  max-width: auto;
   width: 100%;
   min-height: 100vh;
   background-color: #fff;
@@ -11,7 +12,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 0px 3% 0px 4%;
+  padding: 0px 5% 0px 4.6%;
 }
 
 .home::before {

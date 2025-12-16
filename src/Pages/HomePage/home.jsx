@@ -30,11 +30,6 @@ function Home() {
               fried golden chicken. Made fresh. Served hot.
             </p>
 
-            <div className="hero-review">
-              ⭐⭐⭐⭐⭐
-              <span>Rated #1 Street Chicken</span>
-            </div>
-
             <button className="btn-order">Order Now</button>
           </div>
 
