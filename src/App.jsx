@@ -62,6 +62,7 @@ function AppWrapper() {
         {/* Meal Details */}
         <Route path="/meal/:id" element={<MealDetails />} />
          <Route path="/all-meals" element={<AllMeals />} />
+         <Route path="/dish/:id" element={<MealDetails />} />
            <Route path="/all-dishes" element={<AllDishes />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="checkoutForm" element={<CheckoutForm />} />

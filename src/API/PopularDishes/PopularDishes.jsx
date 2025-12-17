@@ -1,18 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
-import { FaEye, FaPlus, FaMinus } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import "./PopularDishes.css";
 
 const PopularDishes = () => {
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedMeal, setSelectedMeal] = useState(null);
-  const [qty, setQty] = useState(1);
 
   const { addToCart } = useCart();
   const sliderRef = useRef(null);
+  const navigate = useNavigate();
 
   // Fetch meals
   useEffect(() => {
@@ -31,17 +30,16 @@ const PopularDishes = () => {
 
   if (loading) return <h2 className="loading">Loading Popular Dishes...</h2>;
 
-  const handleAddToCart = (meal, quantity) => {
-    const success = addToCart({ ...meal, price: meal.price }, quantity);
+  const handleAddToCart = (meal) => {
+    const success = addToCart(meal, 1);
     if (success) {
-      alert(`${meal.strMeal} x${quantity} added to cart!`);
-      setSelectedMeal(null);
+      alert(`${meal.strMeal} added to cart!`);
     } else {
       alert("Please login before adding to cart!");
     }
   };
 
-  // Scroll buttons only
+  // Scroll buttons
   const scrollNext = () => {
     sliderRef.current.scrollBy({ left: 320, behavior: "smooth" });
   };
@@ -65,21 +63,18 @@ const PopularDishes = () => {
         <button className="scroll-btn next" onClick={scrollNext}>›</button>
       </div>
 
-      {/* Render ONLY 4 cards */}
+      {/* Dishes */}
       <div className="dishes-grid" ref={sliderRef}>
         {meals.slice(0, 10).map((meal) => (
           <div key={meal.idMeal} className="dish-card">
             <div className="icon-wrapper">
               <BsCart4
                 className="icon"
-                onClick={() => handleAddToCart(meal, 1)}
+                onClick={() => handleAddToCart(meal)}
               />
               <FaEye
                 className="icon"
-                onClick={() => {
-                  setSelectedMeal(meal);
-                  setQty(1);
-                }}
+                onClick={() => navigate(`/dish/${meal.idMeal}`)}
               />
             </div>
 
@@ -88,56 +83,14 @@ const PopularDishes = () => {
               alt={meal.strMeal}
               className="dish-image"
             />
-            <div className="dish-name-category">
 
-            <h3 className="dish-name">{meal.strMeal}</h3>
-            <p className="dish-category">{meal.strCategory}</p>
+            <div className="dish-name-category">
+              <h3 className="dish-name">{meal.strMeal}</h3>
+              <p className="dish-category">{meal.strCategory}</p>
             </div>
           </div>
         ))}
       </div>
-
-      {/* Modal */}
-      {selectedMeal && (
-        <div className="modal-overlay">
-          <div className="modal-box">
-            <img
-              src={selectedMeal.strMealThumb}
-              alt={selectedMeal.strMeal}
-              className="modal-img"
-            />
-            <h2>{selectedMeal.strMeal}</h2>
-            <p>
-              {selectedMeal.strArea} Dish • Category: {selectedMeal.strCategory}
-            </p>
-
-            <div className="qty-box">
-              <FaMinus
-                className="qty-btn"
-                onClick={() => qty > 1 && setQty(qty - 1)}
-              />
-              <span className="qty-num">{qty}</span>
-              <FaPlus
-                className="qty-btn"
-                onClick={() => setQty(qty + 1)}
-              />
-            </div>
-
-            <h3 className="total-price">₦{qty * selectedMeal.price}</h3>
-
-            <button
-              className="add-btn"
-              onClick={() => handleAddToCart(selectedMeal, qty)}
-            >
-              Add to Cart
-            </button>
-
-            <button className="close-btn" onClick={() => setSelectedMeal(null)}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

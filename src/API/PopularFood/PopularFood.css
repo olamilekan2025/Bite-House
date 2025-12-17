@@ -1,5 +1,4 @@
-
- .meal-container {
+.meal-container {
   padding: 70px 5% 70px 4.7%;
   background: #fafafa;
   justify-content: center;
@@ -7,9 +6,7 @@
   display: flex;
   gap: 10px;
   flex-direction: column;
-
 }
-
 
 .meal-header {
   width: 100%;
@@ -17,15 +14,11 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  
-  
-
 }
 
 .meal-title {
   font-size: 36px;
   font-weight: 700;
-
 }
 
 .view-more-link {
@@ -34,13 +27,11 @@
   text-decoration: none;
 }
 
-
 .slider-wrapper {
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
-  
 }
 
 .meal-slider {
@@ -58,7 +49,6 @@
 .meal-slider.active {
   cursor: grabbing;
 }
-
 
 .meal-cardss {
   max-width: auto;
@@ -90,17 +80,13 @@
 }
 .meal-price-counrty-details {
   width: 100%;
-
 }
-
-
 
 .meal-detailss span {
   font-size: 14px;
 }
 
-
-  .slider-wrapper {
+.slider-wrapper {
   position: relative;
   display: flex;
   align-items: center;
@@ -162,16 +148,13 @@
   right: 33rem;
 }
 
-
-
-
 .loader-container {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;   
+  align-items: center;
   background: #fafafa;
 }
 
@@ -201,14 +184,13 @@
 }
 
 .popular-view-details-btn {
-
   width: 40%;
-  padding: 10px ;
+  padding: 10px;
   border: none;
   cursor: pointer;
   border-radius: 6px;
   display: flex;
-  background-color: #23B12C;
+  background-color: #23b12c;
   margin-left: 9rem;
   justify-content: center;
   align-items: center;
@@ -220,13 +202,17 @@
   font-weight: 600;
 }
 
-
 .link-card {
   text-decoration: none;
   color: inherit;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 896px) {
+  .meal-container {
+    padding: 70px 5% 20px 4.7%;
+
+  }
+
   .slider-arrow {
     display: none;
   }
@@ -240,8 +226,10 @@
   .meal-title {
     font-size: 20px;
   }
+
+  .popular-view-details-btn{
+width: 100%;
+  margin-left: 0rem;
+
+  }
 }
-
-
-
-

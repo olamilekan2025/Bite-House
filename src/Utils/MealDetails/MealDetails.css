@@ -1,12 +1,12 @@
 .meal-details {
   padding: 90px 5% 80px 4.8%;
-  background: #fff;
+  background: whitesmoke;
 
 }
 
 
 .details-card {
-  background: whitesmoke;
+  background: #fff;
   width: 100%;
   border-radius: 18px;
   display: grid;
