@@ -181,7 +181,7 @@
 
 @media (max-width: 900px) {
     .meal-details {
-        padding: 90px 10px;
+        padding: 90px 16px;
     }
   .details-card {
     grid-template-columns: 1fr; 

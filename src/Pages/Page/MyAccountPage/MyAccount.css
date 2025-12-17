@@ -317,9 +317,6 @@ color: #101828;
 
 
 
-
-
-/* ===== Button Spinner ===== */
 .btn-spinner {
   width: 18px;
   height: 18px;
@@ -370,9 +367,24 @@ color: #101828;
   color: #23B12C;
 }
 
-/* optional hover */
+
 .eye-icon:hover {
   color: #1a8c21;
+}
+
+
+
+@media screen and (max-width:896px) {
+.account-container  {
+  gap: 10px;
+}  
+.account-heading > span {
+  font-size: 30px;
+  text-align: center;
+}
+.account-heading > p {
+  text-align: center;
+}
 }
 
 

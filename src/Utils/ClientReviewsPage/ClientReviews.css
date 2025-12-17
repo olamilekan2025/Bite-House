@@ -1,14 +1,10 @@
 
-.review-section {
-  max-width: auto;
-  padding: 80px 2% 20px 1%;
+
+ .review-section {
+  padding: 80px 4.8% 65px;
   background: #E1E1E1;
   overflow: hidden;
-  
-
-
 }
-
 
 .review-header {
   text-align: center;
@@ -24,30 +20,36 @@
 .review-header p {
   font-size: 17px;
   color: #000;
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 10px;
 }
 
 
-.review-slider {
-  max-width: auto;
-  width: 98%;
-  margin: auto;
+.auto-scroll-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.auto-scroll-track {
   display: flex;
-  padding: 2%;
-  gap: 20px;
- 
+  gap: 30px;
+  animation: scroll 40s linear infinite;
+  width: max-content;
 }
 
-.review-slider .slick-slide {
-  padding: 0 15px; 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-.review-slider .slick-list {
-  /* margin: 0 -15px; */
-  background-color: transparent;
+.auto-scroll-container:hover .auto-scroll-track {
+  animation-play-state: paused;
 }
-
 
 .review-card {
   background: #101828;
@@ -55,11 +57,11 @@
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  height: 100%;
+  min-width: auto;
+  width: 400px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
 }
-
-
 
 
 .review-photo {
@@ -68,57 +70,64 @@
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #29ba2b;
-  margin: 0 auto 12px;
+  margin: 0 auto 16px;
 }
-
 
 .review-name {
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
-  margin-top: 6px;
+  margin: 8px 0;
 }
 
-
 .review-stars {
-  margin: 10px 0;
+  margin: 12px 0;
 }
 
 .star-icon {
   color: #29ba2b;
   font-size: 18px;
+  margin: 0 2px;
 }
-
 
 .review-message {
   font-size: 15px;
   color: #e4e7ec;
   line-height: 1.7;
-  margin-top: 12px;
   font-style: italic;
 }
 
 
-.slick-dots li button:before {
-  color: #29ba2b;
-  font-size: 10px;
-}
-
-.slick-dots li.slick-active button:before {
-  color: #101828;
-}
-
-
 @media (max-width: 896px) {
-  .review-header h1 {
-    font-size: 30px;
+  .review-section {
+    padding: 60px 5% 40px;
   }
 
-.review-slider {
-  padding: 10px;
-}
+  .review-header span {
+    font-size: 32px;
+  }
+
   .review-card {
-    padding: 22px 18px;
+    min-width: 280px;
+    padding: 24px 20px;
+  }
+
+  .auto-scroll-track {
+    gap: 20px;
+  }
+
+  .review-photo {
+    width: 80px;
+    height: 80px;
   }
 }
 
+@media (max-width: 480px) {
+  .auto-scroll-track {
+    animation-duration: 35s; 
+  }
+
+  .review-card {
+    min-width: 260px;
+  }
+}

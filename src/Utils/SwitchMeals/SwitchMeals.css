@@ -8,6 +8,13 @@
 
 }
 
+@media screen and (max-width:896px) {
+  .switch-layout {
+    padding:30px 12px;
+  }
+  
+}
+
 .meal-panel span {
   text-align: center;
   max-width: auto;
