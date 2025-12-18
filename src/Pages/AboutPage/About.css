@@ -24,6 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .about-content {
@@ -33,6 +34,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+ 
  
   
 }
@@ -114,6 +116,7 @@
   .about-content {
     grid-template-columns: 1fr;
     gap: 40px;
+    padding: 3px;
   }
 
   .about-overlay h1 {
@@ -148,6 +151,7 @@
  
     
   }
+  
 
   .about-overlay h1 {
     font-size: 2rem;

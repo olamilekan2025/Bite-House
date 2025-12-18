@@ -146,6 +146,10 @@ font-weight: bold;
 
 
 @media (max-width: 768px) {
+
+  .popular-container {
+  padding: 70px 5.3% 70px 5%;
+  }
   .title {
     font-size: 20px;
   }

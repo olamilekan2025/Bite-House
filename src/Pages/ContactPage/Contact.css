@@ -86,7 +86,7 @@
     justify-content: center;
     gap: 40px;
     display: flex;
-    padding: 120px 5%;
+    padding: 120px 6%;
   }
 
   .contact-image-wrapper {
@@ -230,7 +230,7 @@ textarea:focus {
 @media (max-width: 900px) {
   .contact-form-wrapper {
     flex-direction: column;
-    padding: 60px 5%;
+    padding: 60px 6%;
     text-align: center;
 
   }

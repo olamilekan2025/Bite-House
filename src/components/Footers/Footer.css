@@ -170,7 +170,11 @@
 
 @media (max-width: 600px) {
   .footer-top {
-    padding: 40px 15px;
+    padding: 40px 20px;
+  }
+
+  .footer-brand img  {
+    width: 90px;
   }
 
  

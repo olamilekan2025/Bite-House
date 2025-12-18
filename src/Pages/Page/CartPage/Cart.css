@@ -1,7 +1,11 @@
 
 .cart-container {
 width: 100%;
-
+min-height: 100vh;
+justify-content: flex-start;
+align-items: center;
+display: flex;
+flex-direction: column;
   padding: 9rem 4rem 3rem 3.8rem;
   background: whitesmoke; 
  
@@ -23,8 +27,10 @@ width: 100%;
 
 .cart-container p {
   text-align: center;
+  width: 100%;
   font-size: 18px;
   color: #000;
+  margin-left: 65px;
 }
 
 

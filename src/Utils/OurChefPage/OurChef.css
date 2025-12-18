@@ -145,10 +145,10 @@
   .chef-grid {
     gap: 24px;
     grid-template-columns: 1fr; 
+    padding: 0px 9px 0 4px ;
   }
 
   .chef-card {
-    padding: 20px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); 
   }
 
