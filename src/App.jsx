@@ -17,8 +17,11 @@ import BlogDetails from "./Utils/BlogDetailsPage/BlogDetails";
 
 // Dropdown Pages
 import Faq from "./Pages/Page/FaqPage/faq";
-import MyAccount from "./Pages/Page/MyAccountPage/myAccount";
+// import MyAccount from "./Pages/Page/MyAccountPage/myAccount";
+import Login from "./Auth/Login";
+import Signup from "./Auth/Signup";
 import NotFound from "./Pages/Page/NotFoundPage/notFound";
+
 
 // Utilities
 import SplashScreen from "./Utils/SplashScreen";
@@ -71,7 +74,9 @@ function AppWrapper() {
 
         {/* Dropdown */}
    
-        <Route path="/myAccount" element={<MyAccount />} />
+        {/* <Route path="/myAccount" element={<MyAccount />} /> */}
+        <Route path="/login" element={<Login />} />
+  <Route path="/signup" element={<Signup />} />
         <Route path="/faq" element={<Faq />} />
 
         {/* 404 */}

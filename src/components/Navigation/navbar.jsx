@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaUser, FaSignOutAlt } from "react-icons/fa";
@@ -15,7 +14,7 @@ function Navbar() {
   const { user, logout } = useAuth();
   const { getTotalItems } = useCart();
   const navigate = useNavigate();
-  const userRef = useRef(); // Now used for both desktop and mobile dropdown
+  const userRef = useRef();
 
   const cartCount = getTotalItems();
 
@@ -42,7 +41,7 @@ function Navbar() {
     return "NN";
   };
 
-  // Close dropdown when clicking outside (works on mobile too)
+  // Close dropdown when clicking outside (desktop only)
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (userRef.current && !userRef.current.contains(e.target)) {
@@ -67,7 +66,7 @@ function Navbar() {
         <img src={logo} alt="BiteHouse" className="logo-img" />
       </NavLink>
 
-      {/* Main Navigation Menu */}
+      {/* Navigation Menu */}
       <nav className={`nav-menu ${isOpen ? "open" : ""}`}>
         <NavLink to="/about" className="nav-link" onClick={closeMenu}>About</NavLink>
         <NavLink to="/shop" className="nav-link" onClick={closeMenu}>Shop</NavLink>
@@ -75,22 +74,23 @@ function Navbar() {
         <NavLink to="/contact" className="nav-link" onClick={closeMenu}>Contact</NavLink>
         <NavLink to="/faq" className="nav-link" onClick={closeMenu}>Faq</NavLink>
 
+        {/* Desktop Cart */}
         <NavLink to="/cart" className="cart-desktop-link" onClick={closeMenu}>
-          <BsCart4 className="cart-icon" />
+          <BsCart4 />
           {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </NavLink>
 
-        {/* Desktop User Section */}
+        {/* Authentication Section */}
         {user ? (
-          <div className="user-wrapper desktop-user" ref={userRef}>
-            <button
-              className="initials-circle"
-              onClick={toggleUserDropdown}
-            >
+          <div className="user-wrapper" ref={userRef}>
+            {/* Initials Circle - Hidden on mobile via CSS */}
+            <button className="initials-circle" onClick={toggleUserDropdown}>
               {getInitials()}
             </button>
 
+            {/* Dropdown Menu */}
             <div className={`user-dropdown-menu ${showUserDropdown ? "show" : ""}`}>
+              {/* User Info - Hidden on mobile */}
               <div className="user-info">
                 <FaUser className="user-icon" />
                 <div>
@@ -102,67 +102,35 @@ function Navbar() {
                   <p className="user-email">{user.email}</p>
                 </div>
               </div>
+
               <hr />
+
+              {/* Logout Button - Always visible */}
               <button onClick={handleLogout} className="logout-btn">
                 <FaSignOutAlt /> Logout
               </button>
             </div>
           </div>
         ) : (
-          <NavLink to="/myAccount" className="signup-btn" onClick={closeMenu}>
-            Sign Up / Login
-          </NavLink>
+          <div className="auth-buttons">
+            <NavLink to="/login" className="login-btn" onClick={closeMenu}>
+              Login
+            </NavLink>
+            <NavLink to="/signup" className="signup-btn" onClick={closeMenu}>
+              Sign up
+            </NavLink>
+          </div>
         )}
       </nav>
 
-      {/* Mobile Top Bar Icons */}
+      {/* Mobile Controls */}
       <div className="mobile-right">
-        {/* Cart */}
-        <NavLink to="/cart" className="cart-mobile-link" onClick={closeMenu}>
-          <BsCart4 className="cart-icon" />
+        <NavLink to="/cart" className="cart-mobile-link">
+          <BsCart4 />
           {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </NavLink>
 
-        {/* Mobile User Initials + Dropdown */}
-        {user ? (
-          <div className="user-wrapper mobile-user" ref={userRef}>
-            <button
-              className="initials-circle mobile-initials"
-              onClick={toggleUserDropdown}
-            >
-              {getInitials()}
-            </button>
-
-            {/* Dropdown appears on mobile when clicked */}
-            <div className={`user-dropdown-menu mobile ${showUserDropdown ? "show" : ""}`}>
-              <div className="user-info">
-                <FaUser className="user-icon" />
-                <div>
-                  <p className="user-name">
-                    {user.firstName && user.lastName
-                      ? `${user.firstName} ${user.lastName}`
-                      : user.name || "User"}
-                  </p>
-                  <p className="user-email">{user.email}</p>
-                </div>
-              </div>
-              <hr />
-              <button onClick={handleLogout} className="logout-btn">
-                <FaSignOutAlt /> Logout
-              </button>
-            </div>
-          </div>
-        ) : (
-          <NavLink to="/myAccount" className="mobile-login-icon" onClick={closeMenu}>
-            <FaUser />
-          </NavLink>
-        )}
-
-        {/* Hamburger */}
-        <button
-          className="menu-toggle"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
