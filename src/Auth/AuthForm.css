@@ -144,14 +144,20 @@
   font-size: 15px;
   text-align: center;
   color: #fff;
+  
 }
 
 .auth-switch-link span {
   color: #23B12C;
   cursor: pointer;
   font-weight: 600;
+  text-decoration: underline;
 }
 
+.auth-switch-link span:hover {
+  color: #fff;
+  text-decoration: underline;
+}
 .auth-error {
   color: #d00000;
   font-size: 13px;
