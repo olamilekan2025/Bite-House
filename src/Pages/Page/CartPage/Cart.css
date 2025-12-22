@@ -253,25 +253,7 @@
   cursor: pointer;
 }
 
-/* ================= MODAL ================= */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
 
-.modal-content {
-  background: white;
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  max-width: 420px;
-  width: 90%;
-  animation: slideUp 0.4s ease;
-}
 
 
 /* ================= MOBILE ONLY ================= */
@@ -414,10 +396,146 @@
     padding: 0.7rem 1.3rem;
   }
 
-  /* MODAL */
-  .modal-content {
-    padding: 1.5rem;
-    border-radius: 14px;
+ 
+}
+
+
+
+/* ================= MODAL OVERLAY ================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+/* ================= MODAL CARD ================= */
+.modal-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 18px;
+  padding: 1.8rem 1.6rem;
+  position: relative;
+  animation: modalScale 0.25s ease;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes modalScale {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
 }
+
+/* ================= CLOSE BUTTON ================= */
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #f1f1f1;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #444;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #e5e5e5;
+  transform: rotate(90deg);
+}
+
+/* ================= MODAL BODY ================= */
+.modal-body {
+  text-align: center;
+  padding: 1.2rem 0;
+}
+
+.modal-body h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #101828;
+}
+
+.modal-body p {
+  font-size: 1rem;
+  color: #667085;
+  line-height: 1.5;
+}
+
+/* ================= ACTION BUTTONS ================= */
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+/* PRIMARY BUTTON */
+.login-btn-primary {
+  background: #23b12c;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.login-btn-primary:hover {
+  background: #1e9a26;
+  transform: translateY(-1px);
+}
+
+/* SECONDARY BUTTON */
+.login-btn-secondary {
+  background: #f5f7fa;
+  color: #101828;
+  border: 1px solid #e4e7ec;
+  padding: 0.85rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.login-btn-secondary:hover {
+  background: #101828;
+  color: #fff;
+}
+
+/* ================= MOBILE OPTIMIZATION ================= */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .modal-body h2 {
+    font-size: 1.4rem;
+  }
+}
+
 

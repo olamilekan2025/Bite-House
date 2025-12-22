@@ -150,7 +150,7 @@ const Cart = () => {
 
             <div className="modal-body">
               <h2>Login Required</h2>
-              <p>You need to be logged in to proceed to checkout.</p>
+              <p>You need to logged in to proceed to checkout.</p>
             </div>
 
             <div className="modal-actions">
