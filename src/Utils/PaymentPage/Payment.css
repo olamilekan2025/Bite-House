@@ -1,242 +1,290 @@
-/* .paymentWrapper {
-    width: 100%;
-    padding: 50px 0px 10px 0px;
-    background-color: #fff;
-}
-.payment-container {
-  max-width: 600px;
-  margin: 50px auto;
-  background: #101828;
-  border-radius: 15px;
-  padding: 80px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
-}
-
-.payment-title, .receipt-title {
-  text-align: center;
-  color: #23b12c;
-  margin-bottom: 25px;
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.payment-info p, .receipt p {
-  font-size: 16px;
-  margin: 10px 0;
-  color: #fff;
-  align-items: flex-start;
+/* ================= PAYMENT PAGE ================= */
+.payment-page {
+  min-height: 100vh;
+  background: #f7fafc;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 5rem 1rem;
 }
 
-.payment-info strong, .receipt strong {
-  color: #23b12c;
-}
-
-.pay-btn, .home-btn {
-  display: block;
+/* ================= PAYMENT CARD ================= */
+.payment-card {
+  background: white;
+  border-radius: 20px;
   width: 100%;
-  padding: 12px 0;
-  margin-top: 25px;
-  border: none;
-  border-radius: 30px;
-  background: #23b12c;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s;
+  max-width: 420px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
 }
 
-.pay-btn:hover, .home-btn:hover {
-  background: #1a7b20;
-}
-
-.receipt {
+/* ================= HEADER ================= */
+.payment-header {
+  background: linear-gradient(135deg, #23B12C, #1e9a26);
+  color: white;
   text-align: center;
+  padding: 10px 1.5rem;
 }
 
-.thank-you {
-  margin: 20px 0;
-  font-size: 20px;
-  font-weight: 700;
-  color: #ff7a00;
+.payment-header h1 {
+  font-size: 2rem;
+  margin: 0 0 0.4rem;
 }
 
-@media (max-width: 768px) {
-    .paymentWrapper{
-        margin: 0px;
-        padding: 80px 0px 10px 0px ;
-    }
-  .payment-container {
-    margin: 20px;
-    padding: 40px 10px 30px 10px;
-  }
-
-  .payment-title, .receipt-title {
-    font-size: 24px;
-  }
-
-  .pay-btn, .home-btn {
-    font-size: 16px;
-  }
+.payment-header p {
+  opacity: 0.95;
+  font-size: 1.05rem;
 }
 
-
-
-.btn-spinner {
-  width: 18px;
-  height: 18px;
-  border: 3px solid #fff;
-  border-top: 3px solid transparent;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  display: inline-block;
+/* ================= SECTIONS ================= */
+.section {
+  padding: 1.4rem 1.5rem;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+.section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #23B12C;
+  padding-bottom: 0.4rem;
 }
 
-.pay-btn:disabled {
+/* ================= DETAILS ================= */
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.detail-row.address {
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* ================= ORDER ITEMS ================= */
+.order-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name {
+  font-weight: 600;
+}
+
+.quantity {
+  font-size: 0.95rem;
+  color: #888;
+}
+
+.item-price {
+  font-weight: bold;
+  color: #23B12C;
+}
+
+/* ================= TOTAL ================= */
+.total-section {
+  background: #f9fdf9;
+  padding: 1rem 1.5rem;
+  border-top: 3px solid #23B12C;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+
+.amount {
+  color: #23B12C;
+  font-size: 1.8rem;
+}
+
+/* ================= PAY BUTTON ================= */
+.pay-button {
+  width: 100%;
+  padding: 1rem;
+  background: #23B12C;
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.pay-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-} */
-
-
-
-
-
-.paymentWrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f5f5f5;
 }
 
-.payment-container {
-  width: 100%;
-  max-width: 400px;
-  background: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* PAYMENT INFO */
-
-.payment-title {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.payment-info p {
-  font-size: 14px;
-  margin: 6px 0;
-}
-
-/* BUTTON */
-
-.pay-btn {
-  width: 100%;
-  padding: 12px;
-  background: #23B12C;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 15px;
-}
-
-.pay-btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-
-.btn-spinner {
-  width: 18px;
-  height: 18px;
-  border: 3px solid #fff;
-  border-top: 3px solid transparent;
+/* ================= SPINNER ================= */
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top: 3px solid white;
   border-radius: 50%;
-  display: inline-block;
-  animation: spin 0.8s linear infinite;
+  animation: spin 0.9s linear infinite;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
-/* RECEIPT */
-
-.receipt {
-  font-family: "Courier New", monospace;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+/* ================= SUCCESS ================= */
+.success-screen {
   text-align: center;
+  padding: 2rem 1.5rem;
 }
 
-.receipt-header h2 {
-  margin: 0;
-  letter-spacing: 1px;
+.success-icon {
+  font-size: 4.5rem;
+  color: #23B12C;
 }
 
-.receipt-header p {
-  font-size: 12px;
-  color: #666;
+/* ================= RECEIPT ================= */
+.receipt-card {
+  background: #f9f9f9;
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  margin: 1.5rem 0;
+  border: 2px dashed #ddd;
 }
 
-.receipt-divider {
-  border-top: 1px solid #ddd;
-  margin: 12px 0;
+.divider {
+  height: 1px;
+  background: #ccc;
+  margin: 1.4rem 0;
 }
 
-.receipt-divider.dashed {
-  border-top: 1px dashed #aaa;
+.divider.dashed {
+  background: none;
+  border-top: 2px dashed #ccc;
 }
 
-.receipt-info,
-.receipt-customer {
-  text-align: left;
-  font-size: 13px;
-  line-height: 20px;
+.divider.thick {
+  height: 3px;
+  background: #23B12C;
 }
 
-.receipt-info span {
-  font-weight: bold;
-}
-
-.receipt-footer {
-  margin-top: 15px;
-}
-
-.paid {
-  color: green;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.thank-you {
-  font-size: 13px;
-  margin-top: 5px;
-}
-
-.home-btn {
-  margin-top: 15px;
+/* ================= HOME BUTTON ================= */
+.home-button {
   width: 100%;
-  padding: 10px;
-  background: #23B12C ;
-  color: #fff;
+  padding: 1.1rem;
+  background: #101828;
+  color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
+  font-size: 1.2rem;
   cursor: pointer;
+}
+
+/* ================= MOBILE ONLY ================= */
+@media (max-width: 480px) {
+
+  .payment-page {
+    padding: 8rem 1.5rem 10px 1.5rem;
+    align-items: flex-start;
+    margin: 0;
+  }
+
+  .payment-card {
+    border-radius: 14px;
+    max-width: 100%;
+  }
+
+  /* Header */
+  .payment-header {
+    padding: 0.8rem 1rem;
+  }
+
+  .payment-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .payment-header p {
+    font-size: 0.95rem;
+  }
+
+  /* Sections */
+  .section {
+    padding: 1rem;
+  }
+
+  .section h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Details */
+  .detail-row {
+    font-size: 0.95rem;
+  }
+
+  /* Order items */
+  .order-item-row {
+    padding: 0.6rem 0;
+  }
+
+  .item-name {
+    font-size: 0.95rem;
+  }
+
+  .quantity {
+    font-size: 0.85rem;
+  }
+
+  .item-price {
+    font-size: 0.95rem;
+  }
+
+  /* Total */
+  .total-section {
+    padding: 1rem;
+  }
+
+  .total-row {
+    font-size: 1.2rem;
+  }
+
+  .amount {
+    font-size: 1.4rem;
+  }
+
+  /* Pay button */
+  .pay-button {
+    font-size: 1.1rem;
+    padding: 0.9rem;
+  }
+
+  /* Success */
+  .success-screen {
+    padding: 1.5rem 1rem;
+  }
+
+  .success-icon {
+    font-size: 3.5rem;
+  }
+
+  /* Receipt */
+  .receipt-card {
+    padding: 1rem;
+  }
+
+  .receipt-card p {
+    font-size: 0.9rem;
+  }
+
+  /* Home button */
+  .home-button {
+    font-size: 1.05rem;
+    padding: 0.9rem;
+    border-radius: 10px;
+  }
 }
 

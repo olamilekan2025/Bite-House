@@ -1,5 +1,4 @@
-
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 
 const CartContext = createContext();
@@ -7,65 +6,54 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const { user } = useAuth();
 
+  const cartKey = user ? `cart_${user.id}` : "guest_cart";
+
   const [cart, setCart] = useState(() => {
-    const saved = localStorage.getItem("cart");
+    const saved = localStorage.getItem(cartKey);
     return saved ? JSON.parse(saved) : [];
   });
 
- 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+    localStorage.setItem(cartKey, JSON.stringify(cart));
+  }, [cart, cartKey]);
 
- 
-  const addToCart = (meal) => {
-    if (!user) return false;
-
-    const exists = cart.find((item) => item.idMeal === meal.idMeal);
-
-    if (exists) {
-      setCart(
-        cart.map((item) =>
-          item.idMeal === meal.idMeal
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
-    } else {
-      setCart([...cart, { ...meal, quantity: 1, price: meal.price || 1500 }]);
+  // Merge guest cart after login
+  useEffect(() => {
+    if (user) {
+      const guestCart = JSON.parse(localStorage.getItem("guest_cart")) || [];
+      if (guestCart.length > 0) {
+        setCart(prev => mergeCarts(prev, guestCart));
+        localStorage.removeItem("guest_cart");
+      }
     }
+  }, [user]);
 
-    return true;
+  const addToCart = (item) => {
+    setCart(prev => {
+      const exist = prev.find(i => i.idMeal === item.idMeal);
+      if (exist) {
+        return prev.map(i =>
+          i.idMeal === item.idMeal
+            ? { ...i, quantity: i.quantity + item.quantity }
+            : i
+        );
+      }
+      return [...prev, { ...item, quantity: item.quantity || 1, price: item.price || 1500 }];
+    });
   };
 
- 
-  const removeFromCart = (id) => {
-    setCart(cart.filter((item) => item.idMeal !== id));
-  };
+  const removeFromCart = (id) => setCart(prev => prev.filter(i => i.idMeal !== id));
 
-  
   const updateQuantity = (id, qty) => {
-    if (qty <= 0) {
-      removeFromCart(id);
-    } else {
-      setCart(
-        cart.map((item) =>
-          item.idMeal === id ? { ...item, quantity: qty } : item
-        )
-      );
-    }
+    if (qty <= 0) removeFromCart(id);
+    else setCart(prev => prev.map(i => i.idMeal === id ? { ...i, quantity: qty } : i));
   };
-
 
   const clearCart = () => setCart([]);
 
- 
-  const getTotalItems = () =>
-    cart.reduce((sum, item) => sum + item.quantity, 0);
+  const getTotalItems = () => cart.reduce((sum, item) => sum + item.quantity, 0);
 
-
-  const getTotalPrice = () =>
-    cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const getTotalPrice = () => cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <CartContext.Provider
@@ -84,5 +72,19 @@ export function CartProvider({ children }) {
   );
 }
 
-export const useCart = () => useContext(CartContext);
+const mergeCarts = (userCart, guestCart) => {
+  const map = new Map();
+  [...userCart, ...guestCart].forEach(item => {
+    if (map.has(item.idMeal)) {
+      map.set(item.idMeal, {
+        ...item,
+        quantity: map.get(item.idMeal).quantity + item.quantity,
+      });
+    } else {
+      map.set(item.idMeal, item);
+    }
+  });
+  return Array.from(map.values());
+};
 
+export const useCart = () => useContext(CartContext);

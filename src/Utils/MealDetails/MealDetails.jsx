@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { FaNairaSign } from "react-icons/fa6";
 import { FaStar, FaArrowLeft, FaShoppingCart } from "react-icons/fa";
 import { useCart } from "../../context/CartContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./MealDetails.css";
 
 const MealDetails = () => {
@@ -31,7 +33,6 @@ const MealDetails = () => {
         setLoading(false);
       }
     };
-
     fetchMeal();
   }, [id]);
 
@@ -51,6 +52,25 @@ const MealDetails = () => {
     );
   }
 
+  const handleAddToCart = (redirectToCart = false) => {
+    addToCart({
+      idMeal: meal.idMeal,
+      strMeal: meal.strMeal,
+      strMealThumb: meal.strMealThumb,
+      price,
+      quantity: qty,
+    });
+
+    toast.success(`${meal.strMeal} added to cart 🛒`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      pauseOnHover: true,
+    });
+
+    if (redirectToCart) navigate("/cart");
+  };
+
   return (
     <section className="meal-details">
       <div className="details-card">
@@ -59,13 +79,10 @@ const MealDetails = () => {
         <div className="details-content">
           <div className="meal-deatils-back-menu">
             <h2>
-              <span>
-                {" "}
-                <button className="meal-back-btn" onClick={() => navigate(-1)}>
-                  <FaArrowLeft />
-                </button>
-              </span>
-                 {meal.strMeal}
+              <button className="meal-back-btn" onClick={() => navigate(-1)}>
+                <FaArrowLeft />
+              </button>
+              {meal.strMeal}
             </h2>
           </div>
 
@@ -98,45 +115,11 @@ const MealDetails = () => {
 
           {/* Actions */}
           <div className="actions">
-            <button
-              className="add-cart"
-              onClick={() => {
-                const success = addToCart({
-                  idMeal: meal.idMeal,
-                  strMeal: meal.strMeal,
-                  strMealThumb: meal.strMealThumb,
-                  price,
-                  quantity: qty,
-                });
-
-                if (!success) {
-                  alert("Please login to add items to cart");
-                  navigate("/myAccount");
-                }
-              }}
-            >
+            <button className="add-cart" onClick={() => handleAddToCart(false)}>
               <FaShoppingCart /> Add to Cart
             </button>
 
-            <button
-              className="order-now"
-              onClick={() => {
-                const success = addToCart({
-                  idMeal: meal.idMeal,
-                  strMeal: meal.strMeal,
-                  strMealThumb: meal.strMealThumb,
-                  price,
-                  quantity: qty,
-                });
-
-                if (success) {
-                  navigate("/cart");
-                } else {
-                  alert("Please login to continue");
-                  navigate("/myAccount");
-                }
-              }}
-            >
+            <button className="order-now" onClick={() => handleAddToCart(true)}>
               Order Now
             </button>
           </div>

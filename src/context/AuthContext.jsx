@@ -1,11 +1,8 @@
-
-
 import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem("authUser");
     return saved ? JSON.parse(saved) : null;
@@ -16,20 +13,17 @@ export function AuthProvider({ children }) {
     return saved ? JSON.parse(saved) : [];
   });
 
- 
   useEffect(() => {
     if (user) {
-      localStorage.setItem("authUser", JSON.stringify(user));  
+      localStorage.setItem("authUser", JSON.stringify(user));
     } else {
       localStorage.removeItem("authUser");
     }
   }, [user]);
 
-
   useEffect(() => {
     localStorage.setItem("registeredUsers", JSON.stringify(users));
   }, [users]);
-
 
   const signup = (newUser) => {
     const parts = newUser.name.trim().split(" ");
@@ -48,7 +42,6 @@ export function AuthProvider({ children }) {
     setUsers((prev) => [...prev, userObject]);
   };
 
-  
   const login = (email, password) => {
     const found = users.find(
       (u) => u.email === email && u.password === password
@@ -60,7 +53,6 @@ export function AuthProvider({ children }) {
     return true;
   };
 
-  
   const logout = () => {
     setUser(null);
   };
@@ -73,4 +65,3 @@ export function AuthProvider({ children }) {
 }
 
 export const useAuth = () => useContext(AuthContext);
-
