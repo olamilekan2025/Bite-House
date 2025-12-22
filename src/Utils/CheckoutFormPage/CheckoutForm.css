@@ -180,6 +180,9 @@
   color: #23B12C;
   font-weight: 600;
   margin: 0.5rem 0;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .quantity-controls {
@@ -259,6 +262,7 @@
   justify-content: space-between;
   /* padding: 0.8rem 0; */
   font-size: 1.1rem;
+  align-items: center;
 }
 
 .summary-row.tax {
@@ -266,6 +270,10 @@
   border-bottom: 1px solid #eee;
   margin: 1rem 0;
   padding: 1rem 0;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  
 }
 
 .summary-row.total {
@@ -275,10 +283,17 @@
   border-top: 2px solid#23B12C;
   padding-top: 1.2rem;
   margin-top: 1rem;
+   justify-content: space-between;
+  display: flex;
+  align-items: center;
+
 }
 
 .summary-row.total strong {
   color: #27ae60;
+    justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .proceed-btn {
@@ -401,10 +416,15 @@
 
   }
 
-  .item-actions {
+  .item-actionss {
     width: 20%;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     text-align: left;
-    gap: 35px;
+    gap: 30px;
   }
 
   .subtotal {

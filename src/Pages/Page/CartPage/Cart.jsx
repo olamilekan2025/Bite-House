@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../../context/CartContext";
 import { useAuth } from "../../../context/AuthContext";
+import { FaNairaSign } from "react-icons/fa6";
 import { FaTrashAlt, FaHome, FaTimes, FaMinus, FaPlus } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "./Cart.css";
@@ -83,7 +84,7 @@ const Cart = () => {
 
               <div className="item-info">
                 <h3 className="item-name">{item.strMeal || item.name}</h3>
-                <p className="item-price">${item.price.toFixed(2)}</p>
+                <p className="item-price"><FaNairaSign />{item.price.toFixed(2)}</p>
 
                 <div className="quantity-selector">
                   <button
@@ -107,7 +108,7 @@ const Cart = () => {
 
               <div className="item-actions">
                 <p className="subtotal">
-                  ${(item.price * item.quantity).toFixed(2)}
+                  <FaNairaSign />{(item.price * item.quantity).toFixed(2)}
                 </p>
                 <button
                   className="remove-btn"
@@ -124,7 +125,7 @@ const Cart = () => {
         <div className="cart-summary-card">
           <div className="summary-row">
             <span className="summary-label">Total</span>
-            <span className="summary-total">${totalPrice.toFixed(2)}</span>
+            <span className="summary-total"><FaNairaSign />{totalPrice.toFixed(2)}</span>
           </div>
 
           <button className="checkout-btn" onClick={handleCheckout}>

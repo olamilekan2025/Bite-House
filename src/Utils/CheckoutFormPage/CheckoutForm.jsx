@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useCart } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import { FaNairaSign } from "react-icons/fa6";
 import { FaTrashAlt, FaMinus, FaPlus } from "react-icons/fa";
 import Aos from "aos";
 import 'aos/dist/aos.css';
@@ -153,7 +154,7 @@ const CheckoutForm = () => {
 
               <div className="item-details">
                 <h3 className="item-name">{item.strMeal}</h3>
-                <p className="item-price">${item.price.toFixed(2)} each</p>
+                <p className="item-price"><FaNairaSign />{item.price.toFixed(2)} each</p>
 
                 <div className="quantity-controls">
                   <button
@@ -179,9 +180,9 @@ const CheckoutForm = () => {
                 </div>
               </div>
 
-              <div className="item-actions">
+              <div className="item-actionss">
                 <p className="subtotal">
-                  ${(item.price * item.quantity).toFixed(2)}
+                  <FaNairaSign />{(item.price * item.quantity).toFixed(2)}
                 </p>
 
                 <button
@@ -203,23 +204,23 @@ const CheckoutForm = () => {
         <div className="summary-details">
           <div className="summary-row">
             <span>Subtotal</span>
-            <span>${getTotalPrice().toFixed(2)}</span>
+            <span><FaNairaSign />{getTotalPrice().toFixed(2)}</span>
           </div>
 
           <div className="summary-row">
             <span>Delivery Fee</span>
-            <span>$5.99</span>
+            <span><FaNairaSign />5.99</span>
           </div>
 
           <div className="summary-row tax">
             <span>Tax (8%)</span>
-            <span>${(getTotalPrice() * 0.08).toFixed(2)}</span>
+            <span><FaNairaSign />{(getTotalPrice() * 0.08).toFixed(2)}</span>
           </div>
 
           <div className="summary-row total">
             <span>Total</span>
             <strong>
-              ${(getTotalPrice() + 5.99 + getTotalPrice() * 0.08).toFixed(2)}
+              <FaNairaSign />{(getTotalPrice() + 5.99 + getTotalPrice() * 0.08).toFixed(2)}
             </strong>
           </div>
         </div>
