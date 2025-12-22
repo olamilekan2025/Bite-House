@@ -407,6 +407,10 @@
     gap: 35px;
   }
 
+  .subtotal {
+     font-size: 10px;
+  }
+
   .summary-row {
     align-items: flex-start;
     gap: 0.3rem;
