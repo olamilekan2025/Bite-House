@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CookieConsent from "./Utils/CookieConsent";
+
 
 // Layout
 import Navbar from "./components/Navigation/navbar";
@@ -16,6 +18,7 @@ import Contact from "./Pages/ContactPage/contact";
 import Cart from "./Pages/Page/CartPage/Cart";
 import MealDetails from "./Utils/MealDetails/MealDetails";
 import BlogDetails from "./Utils/BlogDetailsPage/BlogDetails";
+
 
 // Dropdown Pages
 import Faq from "./Pages/Page/FaqPage/faq";
@@ -103,6 +106,7 @@ function AppWrapper() {
       </Routes>
 
       <Footer />
+<CookieConsent/>
     </>
   );
 }
