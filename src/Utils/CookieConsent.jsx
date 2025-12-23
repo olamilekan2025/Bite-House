@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import { GiKnifeFork } from "react-icons/gi";
 
 const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
@@ -36,7 +37,7 @@ const CookieConsent = () => {
       }}
     >
       <p style={textStyle}>
-        🍴 We use cookies to improve your Bite House experience. Do you accept cookies?
+        <GiKnifeFork /> We use cookies to improve your Bite House experience. Do you accept cookies?
       </p>
       <div style={buttonContainer}>
         <button style={acceptStyle} onClick={handleAccept}>
