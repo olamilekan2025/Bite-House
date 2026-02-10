@@ -108,6 +108,12 @@
   color: #94a3b8;
 }
 
+.footer-address a {
+  color: #22C55E;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
 
 .footer-subscribe p {
   font-size: 14px;
