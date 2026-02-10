@@ -78,8 +78,11 @@ function Footer() {
             <br />
             Victoria Island, Lagos, Nigeria
             <br />
-            Phone:
+            Whatsapp:
             <a href="tel:+2349129069652">+234 912 906 9652</a>
+            <br />
+            Phone:
+            <a href="tel:+2349129069652">+234 707 405 2461</a>
             <br />
             Email:
             <a href="mailto:jelilioladunjoye04@gmail.com">
